@@ -7,9 +7,8 @@ import com.sendgrid.SendGridException;
 @WebServlet(loadOnStartup=1, urlPatterns = {"/mailer"})
 public class StartupServlet extends HttpServlet {
 	
-	
-	String user = "peter.rangelov11@gmail.com";
-	String sendgridKey = System.getenv("SENDGRID_API_KEY");
+	final String user = "peter.rangelov11@gmail.com";
+	final String sendgridKey = System.getenv("SENDGRID_API_KEY");
 	{
 		System.out.println("Startup servlet running");
 		
