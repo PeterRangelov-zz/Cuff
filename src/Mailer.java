@@ -10,7 +10,6 @@ public class Mailer {
 	private static final String SUBMISSION_SENDER = System.getenv("SUBMISSION_SENDER");
 	
 	public void sendStartupNotification () {
-		System.out.println("Startup servlet running");
 		System.out.println("Sendgrid username: " + SENDGRID_USERNAME);
 		System.out.println("Sendgrid api key: " + SENDGRID_API_KEY);
 		
@@ -32,7 +31,7 @@ public class Mailer {
 			
 	}
 	
-	public void emailSubmission () throws SendGridException {
+	public void emailSubmission () {
 		SendGrid sendgrid = new SendGrid(SENDGRID_API_KEY);
 
 	    Email email = new Email();
@@ -41,8 +40,14 @@ public class Mailer {
 	    email.setSubject("CUFF Notification: Application Startup");
 	    email.setText("Startup Servlet triggered in environment: " + System.getenv("ENVIRONMENT"));
 	    
-	    Response response = sendgrid.send(email);
-		System.out.println(response.getMessage());
+	    Response response;
+		try {
+			response = sendgrid.send(email);
+			System.out.println(response.getMessage());
+		} catch (SendGridException e) {
+			e.printStackTrace();
+		}
+		
 	}
 	
 

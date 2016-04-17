@@ -7,8 +7,11 @@ import com.sendgrid.SendGridException;
 @WebServlet(loadOnStartup=1, urlPatterns = {"/startup"})
 public class StartupServlet extends HttpServlet {
 	{
+		System.out.println("Startup servlet running");
 		Mailer mailer = new Mailer();
-		mailer.sendStartupNotification();
+		if (System.getenv("ENVIRONMENT").equalsIgnoreCase("PROD")) {
+			mailer.sendStartupNotification();
+		}
 	}
 
 }
