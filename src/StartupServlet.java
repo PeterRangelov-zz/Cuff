@@ -19,7 +19,7 @@ public class StartupServlet extends HttpServlet {
 	    email.addTo(user);
 	    email.setFrom(user);
 	    email.setSubject("Hello World");
-	    email.setText("My first email with SendGrid Java!");
+	    email.setText("Sending email from environment: " + System.getenv("ENVIRONMENT"));
 	    
 	    SendGrid.Response response;
 		try {
