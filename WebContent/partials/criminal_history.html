@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<body>
+	<h1 class='text-success'>Criminal History</h1>
+	<hr>
+
+	<div class='row'>
+		<div class='form-group col-xs-12 col-md-6 col-lg-3'>
+			<label for='ncis_number'>NCIS Number</label>
+			<input type='text' name='ncis_number' ng-model='ncis_number' class='form-control input-sm' required>
+		</div>
+	</div>
+
+
+	<form name='form' novalidate>
+		<div class='row'>
+			<div class='form-group col-xs-12 col-md-6 col-lg-3'>
+				<label for='municipality'>Municipality</label>
+				<span ng-show='(form.municipality.$touched && form.municipality.$invalid) || (form.$submitted && form.municipality.$invalid)' class='text-danger'>Required</span>
+				<input type='text' name='municipality' ng-model='municipality' class='form-control input-sm' required>
+			</div>
+				<div class='form-group col-xs-12 col-md-6 col-lg-3'>
+					<label for='charge'>Charge</label>
+					<span ng-show='(form.charge.$touched && form.charge.$invalid) || (form.$submitted && form.charge.$invalid)' class='text-danger'>Required</span>
+					<input type='text' name='charge' ng-model='charge' class='form-control input-sm' required >
+				</div>
+
+				<div class='form-group col-xs-12 col-md-2 col-lg-1'>
+					<label for='month'>Month</label>
+					<select name='month' ng-model='month' class='input-sm form-control'>
+						<option ng-repeat='month in months' value='{{month}}'>{{month}}</option>
+					</select>
+				</div>
+
+
+				<div class='form-group col-xs-12 col-md-2 col-lg-2'>
+					<label for='charge'>Year</label>
+					<select name='year' ng-model='year' class='form-control input-sm'>
+						<option ng-repeat='year in years' value='{{year}}'>{{year}}</option>
+					</select>
+				</div>
+				
+				<div class='col-xs-12'>
+					<button type='submit' class='btn btn-success' ng-click='addEntry(form.$valid, municipality, charge, month, year)'>Add Entry</button>
+				</div>
+
+			</div>
+		</div>
+	</form>
+	<br><br>
+		
+	<div class='row '>
+		<div class='col-xs-12 col-md-11 col-lg-9 center-block'>
+			<span ng-show='entries.length==0'>No added criminal history entries</span>
+			<table class='table table-bordered table-condensed table-hover' ng-show='entries.length>0'>
+				<tr>
+					<th>Municipality</th>
+					<th>Charge</th>
+					<th>Convicted on</th>
+					<th>Remove Entry</th>
+				</tr>
+				<tr ng-repeat='entry in entries'>
+					<td>{{entry.municipality}}</td>
+					<td>{{entry.charge}}</td>
+					<td>{{entry.month}}/{{entry.year}}</td>
+					<td>
+						<i class='btn fa fa-trash-o text-danger' ng-click='removeEntry(entry.municipality, entry.charge, entry.month, entry.year)'></i>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<br><br>
+
+		<div class='pull-right'>
+			<button type='button' class='btn btn-primary' wz-previous>Back</button>
+			<button type='button' class='btn btn-primary' wz-next>Continue</button>
+		</div>
+		<br><br>
+	
+</body>

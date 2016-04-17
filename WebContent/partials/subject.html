@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<body>
+	<h1 class='text-success'>Subject Information</h1>
+	<hr>						
+	<form novalidate>
+
+		<div class='row'>
+			<div class='col-xs-12'>
+				<div class='form-group'>
+					<label><input type='radio' name='gender' value='male' checked='checked'> Male</label>
+					<label><input type='radio' name='gender' value='female'>Female</label>
+				</div>
+			</div>
+		</div>
+
+		<div class='row'>
+			<div class='col-xs-12 col-sm-4'>
+				<div class='form-group'>
+					<label for='first_name'>First name</label>
+					<input type='text' name='first_name' ng-model='first_name' class='form-control'>
+				</div>
+			</div>
+			<div class='col-xs-12 col-sm-4'>
+				<div class='form-group'>
+					<label for='middle_name'>Middle name</label>
+					<input type='text' name='middle_name' ng-model='middle_name' class='form-control'>
+				</div>
+			</div>
+
+			<div class='col-xs-12 col-sm-4'>
+				<div class='form-group'>
+					<label for='last_name'>Last name</label>
+					<input type='text' name='last_name' ng-model='last_name' class='form-control'>
+				</div>
+			</div>
+		</div>
+
+		<div class='row'>
+			<div class='col-xs-12'>
+				<div class='form-group'>
+					<label for='aliases'>Aliases</label>
+					<textarea name='aliases' ng-model='aliases' class='form-control'></textarea>
+				</div>
+			</div>
+		</div>
+
+		<div class='row'>
+			<div class='col-xs-12 col-sm-4'>
+				<div class='form-group'>
+					<label for='drivers_license'>Driver's License</label>
+					<input type='text' name='drivers_license' ng-model='drivers_license' class='form-control'>
+				</div>
+			</div>
+			<div class='col-xs-12 col-sm-4'>
+				<div class='form-group'>
+					<label for='ssn'>Social Security Number</label>
+					<input type='text' name='ssn' ng-model='ssn' class='form-control'>
+				</div>
+			</div>
+
+			<div class='col-xs-12 col-sm-4'>
+				<div class='form-group'>
+					<label for='dob'>Date of Birth</label>
+					<input type='text' name='dob' ng-model='dob' class='form-control'>
+				</div>
+			</div>
+		</div>
+		
+		<div class='row'>
+			<div class='col-xs-12'>
+				<div class='form-group'>
+					<label for='background_info'>Background info</label>
+					<textarea name='background_info' ng-model='background_info' class='form-control' placeholder='If desired, please describe the events that prompted you to enter the subject into the database. Use this field to add any info not available for selection in any other form field.'></textarea>
+				</div>
+			</div>
+		</div>
+
+				
+					
+				
+
+
+
+				
+
+				<div class='form-group'>
+					
+					
+				</div>
+
+				<div class='form-group'>
+					
+				</div>
+
+				<div class='form-group'>
+					
+				</div>
+			</div>
+		</div>
+		
+		
+		<div class="pull-right">
+			<button type='button' class='btn btn-primary' wz-previous>Back</button>
+			<button type='button' class='btn btn-primary' wz-next>Continue</button>
+		</div>
+		<br><br>
+	</form>
+</body>

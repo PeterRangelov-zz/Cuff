@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<body>
+	<h1 class='text-success'>Subject whereabouts</h1>
+	<hr>
+	<form novalidate>
+		<div class='form-group'>
+			<label for='address.city'>City</label>
+			<input type='text' name='address.city' ng-model='address.city' class='form-control'>
+		</div>
+			
+		<div class='form-group'>
+			<label for='address.state'>State</label>
+			<input type='text' name='address.state' ng-model='address.state' class='form-control'>
+		</div>
+
+		<div class='form-group'>
+			<label for='address.zipcode'>Zipcode</label>
+			<input type='text' name='address.zipcode' ng-model='address.zipcode' class='form-control'>
+		</div>
+		
+		
+
+
+
+			<div class="pull-right">
+				<button type='button' class='btn btn-primary' wz-previous>Back</button>
+				<button type='button' class='btn btn-primary' wz-next>Continue</button>
+			</div>
+			<br><br>
+		</form>
+</body>

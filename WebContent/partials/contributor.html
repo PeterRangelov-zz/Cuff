@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<body>
+	<h1 class='text-success'>Contributor Information</h1>
+	<hr>
+	<form name='form' novalidate>
+		<div class='form-group'>
+			<label><input type='radio' name='entry_type' value='new_entry' checked='checked'> New Entry</label>
+			<label><input type='radio' name='entry_type' value='change_existing_entry'> Change Existing Entry</label>
+		</div>
+		
+		<div class='row'>
+			<div class='col-xs-12 col-sm-4'>
+				<div class='form-group'>
+					<label for='first_name'>First name</label>
+					<span ng-show='(form.first_name.$touched && form.first_name.$invalid) || (form.$submitted && form.first_name.$invalid)' class='text-danger'>Required</span>
+					<input type='text' name='first_name' ng-model='first_name' class='form-control input-sm' required>
+				</div>
+			</div>
+			<div class='col-xs-12 col-sm-4'>
+				<div class='form-group'>
+					<label for='last_name'>Last name</label>
+					<span ng-show='(form.last_name.$touched && form.last_name.$invalid) || (form.$submitted && form.last_name.$invalid)' class='text-danger'>Required</span>
+					<input type='text' name='last_name' ng-model='last_name' class='form-control input-sm' required>
+				</div>
+			</div>
+
+			<div class='col-xs-12 col-sm-4'>
+				<div class='form-group'>
+					<label for='relationship'>Relationship to subject</label>
+					<select name=relationship class=form-control>
+						<option value='Self'>Self</option>
+					</select>
+				</div>
+			</div>
+
+		</div>
+
+		<div class='row'>
+			<div class='col-xs-12 col-sm-6'>
+				<div class='form-group'>
+					<label for='city'>City</label>
+					<span ng-show='(form.city.$touched && form.city.$invalid) || (form.$submitted && form.city.$invalid)' class='text-danger'>Required</span>
+					<input type='text' name='city' ng-model='city' class='form-control input-sm' required>
+				</div>
+			</div>	
+			<div class='col-xs-12 col-sm-2'>		
+				<div class='form-group'>
+					<label for='address.state'>State</label>
+					<select name='address.state' ng-model='address.state' class='form-control input-sm'>
+						<option ng-repeat="state in states.content" value="{{state}}">{{state}}</option>
+					</select>
+				</div>
+			</div>
+			<div class='col-xs-12 col-sm-4'>
+				<div class='form-group'>
+					<label for='zipcode'>Zipcode</label>
+					<span ng-show='(form.zipcode.$touched && form.zipcode.$invalid) || (form.$submitted && form.zipcode.$invalid)' class='text-danger'>Required</span>
+					<input type='text' name='zipcode' ng-model='zipcode' class='form-control input-sm' required ng-maxlength='5'>
+				</div>
+			</div>
+		</div>
+		
+		<div class='row'>
+			<div class='col-xs-12 col-sm-4'>
+				<div class='form-group'>
+					<label for='phone_number'>Phone number</label>
+					<span ng-show='(form.phone_number.$touched && form.phone_number.$invalid) || (form.$submitted && form.phone_number.$invalid)' class='text-danger'>Required</span>
+					<input type='text' name='phone_number' ng-model='phone_number' class='form-control input-sm' required>
+				</div>
+			</div>
+			<div class='col-xs-12 col-sm-4'>
+				<div class='form-group'>
+					<label for='email_address'>Email address</label>
+					<span ng-show='(form.email_address.$touched && form.email_address.$invalid) || (form.$submitted && form.email_address.$invalid)' class='text-danger'>Please enter a valid email address</span>
+					<input type='email' name='email_address' ng-model='email_address' class='form-control input-sm' required>
+				</div>
+			</div>
+			<div class='col-xs-12 col-sm-4'>
+				<div class='form-group'>
+					<label for='preferred_contact_method'>Preffered contact method</label>
+					<select name='preferred_contact_method' class='form-control input-sm' ng-model='preferred_contact_method'>
+						<option value='phone'>Phone</option>
+						<option value='email'>Email</option>
+					</select>
+				</div>
+			</div>
+		</div>
+			
+			
+		<div class="pull-right">
+			<button type='submit' class='btn btn-primary' ng-click='nextStep(form.$valid)' >Continue</button>
+		</div>
+		<br><br>	
+	</form>
+</body>
+

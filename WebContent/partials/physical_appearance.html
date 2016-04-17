@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<head>
+	<script type='text/javascript' src='//cdn.jsdelivr.net/livejs/4/live.js'></script>
+	
+</head>
+<body >
+	<h1 class='text-success'>Physical Characteristics</h1>
+	<hr>
+	<form novalidate in-view='refreshSlider()'>
+		<div class='row'>
+			<div class='col-xs-12 col-sm-6'>
+				<div class='form-group'>
+					<label for='race'>Race</label>
+					<select name='race' ng-model='race' class='form-control'>
+						<option ng-repeat="race in races.content" value="{{race}}">{{race}}</option>
+					</select>
+				</div>
+			</div>
+
+			<div class='col-xs-12 col-sm-6'>
+				<div class='form-group'>
+					<label for='nationality'>Nationality</label>
+					<input type='text' name='nationality' ng-model='nationality' class='form-control'>
+					<!-- <select name='nationality' ng-model='nationality' class='form-control'>
+						<option ng-repeat="nationality in nationalities.content" value="{{nationality}}">{{nationality}}</option>
+					</select> -->
+				</div>
+			</div>
+		</div>
+
+		<div class='row'>
+			<div class='col-xs-12 col-sm-6'>
+				<div class='form-group'>
+					<label for='height'>Height</label>
+						<rzslider rz-slider-model="height" rz-slider-options="height_slider.options" id='height_slider'></rzslider>
+				</div>
+			</div>
+
+			<div class='col-xs-12 col-sm-6'>
+				<div class='form-group'>
+					<label for='weight'>Weight</label>
+					<rzslider rz-slider-model="weight" rz-slider-options="weight_slider.options"></rzslider>
+				</div>
+			</div>
+		</div>
+		
+		<div class='row'>
+			<div class='col-xs-12 col-sm-6'>
+				<div class='form-group'>
+					<label for='hair_color'>Hair Color</label>
+					<select name='hair_color' ng-model='hair_color' class='form-control'>
+						<option ng-repeat="hair_color in hair_colors.content" value="{{hair_color}}">{{hair_color}}</option>
+					</select>
+				</div>
+			</div>	
+
+			<div class='col-xs-12 col-sm-6'>
+				<div class='form-group'>
+					<label for='eye_color'>Eye Color</label>
+					<select name='eye_color' ng-model='eye_color' class='form-control'>
+						<option ng-repeat="eye_color in eye_colors.content" value="{{eye_color}}">{{eye_color}}</option>
+					</select>
+				</div>
+			</div>
+		</div>
+
+		<div class='form-group'>
+			<label for='physical_characteristics'>Other phyiscal characteristics</label>
+			<textarea name='physical_characteristics' ng-model='physical_characteristics' class='form-control' ></textarea>
+		</div>
+
+		 
+
+
+
+		<div class="pull-right">
+			<button type='button' class='btn btn-primary' wz-previous>Back</button>
+			<button type='button' class='btn btn-primary' wz-next>Continue</button>
+		</div>
+		<br><br>
+	</form>
+</body>

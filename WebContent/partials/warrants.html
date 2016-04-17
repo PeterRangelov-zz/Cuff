@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<body>
+	<h1 class='text-success'>Active/Inactive Warrants</h1>
+	<hr>
+
+	<form name='warrant_form' novalidate>
+		<div class='row'>
+			<div class='form-group col-xs-12 col-md-6 col-lg-3'>
+				<label for='municipality'>Municipality</label>
+				<span ng-show='(warrant_form.municipality.$touched && warrant_form.municipality.$invalid) || (warrant_form.$submitted && warrant_form.municipality.$invalid)' class='text-danger'>Required</span>
+				<input type='text' name='municipality' ng-model='municipality' class='form-control input-sm' required>
+			</div>
+
+
+				<div class='form-group col-xs-12 col-md-6 col-lg-3'>
+					<label for='warrant_number'>Warrant Number</label>
+					<span ng-show='(warrant_form.warrant_number.$touched && warrant_form.warrant_number.$invalid) || (warrant_form.$submitted && warrant_form.warrant_number.$invalid)' class='text-danger'>Required</span>
+					<input type='text' name='warrant_number' ng-model='warrant_number' class='form-control input-sm' required>
+				</div>
+
+
+				<div class='form-group col-xs-12 col-md-6 col-lg-3'>
+					<label for='charge'>Charge</label>
+					<span ng-show='(warrant_form.charge.$touched && warrant_form.charge.$invalid) || (warrant_form.$submitted && warrant_form.charge.$invalid)' class='text-danger'>Required</span>
+					<input type='text' name='charge' ng-model='charge' class='form-control input-sm' required >
+				</div>
+
+
+
+				<div class='form-group col-xs-12 col-md-2 col-lg-1'>
+					<label for='month'>Month</label>
+					<select name='month' ng-model='month' class='input-sm form-control'>
+						<option ng-repeat='month in warrant_months' value='{{month}}'>{{month}}</option>
+					</select>
+				</div>
+
+
+				<div class='form-group col-xs-12 col-md-2 col-lg-2'>
+					<label for='charge'>Year</label>
+					<select name='year' ng-model='year' class='form-control input-sm'>
+						<option ng-repeat='year in warrant_years' value='{{year}}'>{{year}}</option>
+					</select>
+				</div>
+				
+				<div class='col-xs-12'>
+					<button type='submit' class='btn btn-success' ng-click='addWarrant(warrant_form.$valid, municipality, charge, warrant_number, month, year)'>Add warrant</button>
+				</div>
+
+			</div>
+		</div>
+	</form>
+	<br><br>
+		
+	<div class='row '>
+		<div class='col-xs-12 col-md-11 col-lg-9 center-block'>
+			<span ng-show='warrants.length==0'>No added warrants</span>
+			<table class='table table-bordered table-condensed table-hover' ng-show='warrants.length>0'>
+				<tr>
+					<th>Municipality</th>
+					<th>Warrant Number</th>
+					<th>Charge</th>
+					<th>Month/Year</th>
+					<th>Remove Entry</th>
+				</tr>
+				<tr ng-repeat='warrant in warrants'>
+					<td>{{warrant.municipality}}</td>
+					<td>{{warrant.warrant_number}}</td>
+					<td>{{warrant.charge}}</td>
+					<td>{{warrant.month}}/{{warrant.year}}</td>
+					<td>
+						<i class='btn fa fa-trash-o text-danger' ng-click='removeWarrant(warrant.municipality, warrant.charge, warrant.warrant_number, month, year)'></i>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<br><br>
+
+		<div class='pull-right'>
+			<button type='button' class='btn btn-primary' wz-previous>Back</button>
+			<button type='button' class='btn btn-primary' wz-next>Continue</button>
+		</div>
+		<br><br>
+	
+</body>

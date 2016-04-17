@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<body>
+	<h1 class='text-success'>Active/Inactive Judgments</h1>
+	<hr>
+	<form name='judgment_form' novalidate>
+		<div class='row'>
+			<div class='form-group col-xs-12 col-md-6 col-lg-3'>
+				<label for='municipality'>Municipality</label>
+				<span ng-show="(judgment_form.municipality.$touched && judgment_form.municipality.$invalid) || (judgment_form.$submitted && judgment_form.municipality.$invalid)" class='text-danger'>Required</span>
+				<input type='text' name='municipality' ng-model='municipality' class='form-control input-sm' required>
+			</div>
+
+
+				<div class='form-group col-xs-12 col-md-6 col-lg-3'>
+					<label for='judgment_number'>Judgment Number</label>
+					<span ng-show="(judgment_form.judgment_number.$touched && judgment_form.judgment_number.$invalid) || (judgment_form.$submitted && judgment_form.judgment_number.$invalid)" class='text-danger'>Required</span>
+					<input type='text' name='judgment_number' ng-model='judgment_number' class='form-control input-sm' required>
+				</div>
+
+
+				<div class='form-group col-xs-12 col-md-6 col-lg-3'>
+					<label for='amount'>Amount</label>
+					<span ng-show="(judgment_form.amount.$touched && judgment_form.amount.$invalid) || (judgment_form.$submitted && judgment_form.amount.$invalid)" class='text-danger'>Required</span>
+					<input type='text' name='amount' ng-model='amount' class='form-control input-sm' ui-money-mask required>
+				</div>
+
+
+
+				<div class='form-group col-xs-12 col-md-2 col-lg-1'>
+					<label for='judgment_month'>Month</label>
+					<select name='judgment_month' ng-model='judgment_month' class='input-sm form-control'>
+						<option ng-repeat="judgment_month in judgment_months" value="{{judgment_month}}">{{judgment_month}}</option>
+					</select>
+				</div>
+
+
+				<div class='form-group col-xs-12 col-md-2 col-lg-2'>
+					<label for='charge'>Year</label>
+					<select name='judgment_year' ng-model='judgment_year' class='form-control input-sm'>
+						<option ng-repeat="judgment_year in judgment_years" value="{{judgment_year}}">{{judgment_year}}</option>
+					</select>
+				</div>
+				
+				<div class='col-xs-12'>
+					<button type='submit' class='btn btn-success' ng-click='addjudgment(judgment_form.$valid, municipality, amount, judgment_number, judgment_month, judgment_year)'>Add judgment</button>
+				</div>
+
+			</div>
+		</div>
+	</form>
+	<br><br>
+		
+	<div class='row '>
+		<div class='col-xs-12 col-md-11 col-lg-9 center-block'>
+			<span ng-show="judgments.length==0">No added judgments</span>
+			<table class="table table-bordered table-condensed table-hover" ng-show='judgments.length>0'>
+				<tr>
+					<th>Municipality</th>
+					<th>Judgment Number</th>
+					<th>Amount</th>
+					<th>Entered on</th>
+					<th>Remove Entry</th>
+				</tr>
+				<tr ng-repeat="judgment in judgments" >
+					<td>{{judgment.municipality}}</td>
+					<td>{{judgment.judgment_number}}</td>
+					<td>${{judgment.amount}}</td>
+					<td>{{judgment.month}}/{{judgment.year}}</td>
+					<td>
+						<i class="btn fa fa-trash-o text-danger" ng-click="removejudgment(judgment.municipality, judgment.amount, judgment.judgment_number, judgment.month, judgment.year)"></i>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<br><br>
+	
+
+
+		<div class="pull-right">
+			<button type='button' class='btn btn-primary' wz-previous>Back</button>
+			<button type='button' class='btn btn-primary' wz-next>Continue</button>
+		</div>
+		<br><br>
+	
+</body>
