@@ -2,7 +2,7 @@
 <body>
 	<h1 class='text-success'>Subject Information</h1>
 	<hr>						
-	<form novalidate>
+	<form name='form' novalidate>
 
 		<div class='row'>
 			<div class='col-xs-12'>
@@ -17,20 +17,22 @@
 			<div class='col-xs-12 col-sm-4'>
 				<div class='form-group'>
 					<label for='first_name'>First name</label>
-					<input type='text' name='first_name' ng-model='first_name' class='form-control'>
+					<span ng-show='(form.first_name.$touched && form.first_name.$invalid) || (form.$submitted && form.first_name.$invalid)' class='text-danger'>Required</span>
+					<input type='text' name='first_name' ng-model='first_name' class='form-control input-sm' required>
 				</div>
 			</div>
 			<div class='col-xs-12 col-sm-4'>
 				<div class='form-group'>
 					<label for='middle_name'>Middle name</label>
-					<input type='text' name='middle_name' ng-model='middle_name' class='form-control'>
+					<input type='text' name='middle_name' ng-model='middle_name' class='form-control input-sm'>
 				</div>
 			</div>
 
 			<div class='col-xs-12 col-sm-4'>
 				<div class='form-group'>
 					<label for='last_name'>Last name</label>
-					<input type='text' name='last_name' ng-model='last_name' class='form-control'>
+					<span ng-show='(form.last_name.$touched && form.last_name.$invalid) || (form.$submitted && form.last_name.$invalid)' class='text-danger'>Required</span>
+					<input type='text' name='last_name' ng-model='last_name' class='form-control input-sm' required>
 				</div>
 			</div>
 		</div>
@@ -39,7 +41,7 @@
 			<div class='col-xs-12'>
 				<div class='form-group'>
 					<label for='aliases'>Aliases</label>
-					<textarea name='aliases' ng-model='aliases' class='form-control'></textarea>
+					<textarea name='aliases' ng-model='aliases' class='form-control input-sm'></textarea>
 				</div>
 			</div>
 		</div>
@@ -48,20 +50,21 @@
 			<div class='col-xs-12 col-sm-4'>
 				<div class='form-group'>
 					<label for='drivers_license'>Driver's License</label>
-					<input type='text' name='drivers_license' ng-model='drivers_license' class='form-control'>
+					<input type='text' name='drivers_license' ng-model='drivers_license' class='form-control input-sm'>
 				</div>
 			</div>
 			<div class='col-xs-12 col-sm-4'>
 				<div class='form-group'>
 					<label for='ssn'>Social Security Number</label>
-					<input type='text' name='ssn' ng-model='ssn' class='form-control'>
+					<input type='text' name='ssn' ng-model='ssn' class='form-control input-sm'>
 				</div>
 			</div>
 
 			<div class='col-xs-12 col-sm-4'>
 				<div class='form-group'>
 					<label for='dob'>Date of Birth</label>
-					<input type='text' name='dob' ng-model='dob' class='form-control'>
+					<span ng-show='(form.dob.$touched && form.dob.$invalid) || (form.$submitted && form.dob.$invalid)' class='text-danger'>Required</span>
+					<input type='text' name='dob' ng-model='dob' class='form-control input-sm' required>
 				</div>
 			</div>
 		</div>
@@ -70,7 +73,7 @@
 			<div class='col-xs-12'>
 				<div class='form-group'>
 					<label for='background_info'>Background info</label>
-					<textarea name='background_info' ng-model='background_info' class='form-control' placeholder='If desired, please describe the events that prompted you to enter the subject into the database. Use this field to add any info not available for selection in any other form field.'></textarea>
+					<textarea name='background_info' ng-model='background_info' class='form-control input-sm' placeholder='If desired, please describe the events that prompted you to enter the subject into the database. Use this field to add any info not available for selection in any other form field.'></textarea>
 				</div>
 			</div>
 		</div>
@@ -100,8 +103,8 @@
 		
 		
 		<div class="pull-right">
-			<button type='button' class='btn btn-primary' wz-previous>Back</button>
-			<button type='button' class='btn btn-primary' wz-next>Continue</button>
+			<button type='button' class='btn-sm btn-primary' wz-previous>Back</button>
+			<button type='submit' class='btn-sm btn-primary' ng-click='nextStep(form.$valid)'>Continue</button>
 		</div>
 		<br><br>
 	</form>

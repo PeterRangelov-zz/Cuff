@@ -20,12 +20,16 @@
 	
 	
 	<script src='index.js'></script>
+	<script type='text/javascript' src='services/submissionService.js'></script>
+	<script type='text/javascript' src='controllers/rootController.js'></script>
 	<script type='text/javascript' src='controllers/warrantsController.js'></script>
 	<script type='text/javascript' src='controllers/judgmentsController.js'></script>
 	<script type='text/javascript' src='controllers/contributorController.js'></script>
 	<script type='text/javascript' src='controllers/subjectController.js'></script>
 	<script type='text/javascript' src='controllers/physicalAppearanceController.js'></script>
 	<script type='text/javascript' src='controllers/criminalHistoryController.js'></script>
+	<script type='text/javascript' src='controllers/submitController.js'></script>
+	<script type='text/javascript' src='services/dropdownService.js'></script>
 	
 	<!-- <script src='alert.js'></script> -->
 </head>
@@ -33,18 +37,19 @@
 <body>
 	<div class='container'>
 		<div class='row'>
-			<div class='col-xs-12 col-md-8'>
-				<wizard on-finish='finishedWizard()' template='template.html'>
+			<div class='col-xs-12 col-md-9' ng-controller='rootController'>
+				<wizard on-finish='submit()' template='template.html'>
 
+					
 
 					<div ng-controller='contributorController'>
-						<wz-step wz-title='Your Information'>
+						<wz-step wz-title='Your Info'>
 							<div ng-include="'partials/contributor.html'"></div>
 						</wz-step>
 					</div>
 
 					<div ng-controller='subjectController'>
-						<wz-step wz-title='Subject Information'>
+						<wz-step wz-title='Subject Info'>
 							<div ng-include="'partials/subject.html'"></div>
 						</wz-step>
 					</div>
@@ -72,6 +77,14 @@
 							<div ng-include="'partials/criminal_history.html'"></div>
 						</wz-step>
 					</div>
+
+					<div ng-controller='submitController'>
+						<wz-step wz-title='Submit'>
+							<div ng-include="'partials/submit.html'"></div>
+						</wz-step>
+					</div>
+
+					
 					
 
 					

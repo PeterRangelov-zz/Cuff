@@ -1,4 +1,4 @@
-myApp.controller('criminalHistoryController', ['$scope', '$location', 'WizardHandler', function($scope, $location, WizardHandler) {
+myApp.controller('criminalHistoryController', ['$scope', 'SubmissionService', '$location', 'WizardHandler', function($scope, SubmissionService, $location, WizardHandler) {
 		$scope.entries = [];
 		$scope.municipality;
 		$scope.charge;
@@ -30,11 +30,9 @@ myApp.controller('criminalHistoryController', ['$scope', '$location', 'WizardHan
 			$scope.entries = _.without($scope.entries, current);
 		};
 
-		$scope.nextStep = function(isValid) {
-			console.log('Validating form. Valid? '+isValid)
-			if (isValid) {
-				WizardHandler.wizard().next();
-			}
+		$scope.nextStep = function() {
+			SubmissionService.setCriminalHistory($scope);
+			WizardHandler.wizard().next();
 		}
 
 

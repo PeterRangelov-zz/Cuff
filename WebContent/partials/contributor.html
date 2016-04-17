@@ -45,9 +45,9 @@
 			</div>	
 			<div class='col-xs-12 col-sm-2'>		
 				<div class='form-group'>
-					<label for='address.state'>State</label>
-					<select name='address.state' ng-model='address.state' class='form-control input-sm'>
-						<option ng-repeat="state in states.content" value="{{state}}">{{state}}</option>
+					<label for='state'>State</label>
+					<select name='state' ng-model='state' class='form-control input-sm'>
+						<option ng-repeat='state in states.content' value='{{state}}'>{{state}}</option>
 					</select>
 				</div>
 			</div>
@@ -55,7 +55,7 @@
 				<div class='form-group'>
 					<label for='zipcode'>Zipcode</label>
 					<span ng-show='(form.zipcode.$touched && form.zipcode.$invalid) || (form.$submitted && form.zipcode.$invalid)' class='text-danger'>Required</span>
-					<input type='text' name='zipcode' ng-model='zipcode' class='form-control input-sm' required ng-maxlength='5'>
+					<input type='text' name='zipcode' ng-model='zipcode' class='form-control input-sm' required maxlength='5'>
 				</div>
 			</div>
 		</div>
@@ -88,7 +88,7 @@
 			
 			
 		<div class="pull-right">
-			<button type='submit' class='btn btn-primary' ng-click='nextStep(form.$valid)' >Continue</button>
+			<button type='submit' class='btn-sm btn-primary' ng-click='nextStep(form.$valid)' >Continue</button>
 		</div>
 		<br><br>	
 	</form>

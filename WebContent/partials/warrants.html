@@ -3,25 +3,25 @@
 	<h1 class='text-success'>Active/Inactive Warrants</h1>
 	<hr>
 
-	<form name='warrant_form' novalidate>
+	<form name='form' novalidate>
 		<div class='row'>
 			<div class='form-group col-xs-12 col-md-6 col-lg-3'>
 				<label for='municipality'>Municipality</label>
-				<span ng-show='(warrant_form.municipality.$touched && warrant_form.municipality.$invalid) || (warrant_form.$submitted && warrant_form.municipality.$invalid)' class='text-danger'>Required</span>
+				<span ng-show='(form.municipality.$touched && form.municipality.$invalid) || (form.$submitted && form.municipality.$invalid)' class='text-danger'>Required</span>
 				<input type='text' name='municipality' ng-model='municipality' class='form-control input-sm' required>
 			</div>
 
 
 				<div class='form-group col-xs-12 col-md-6 col-lg-3'>
 					<label for='warrant_number'>Warrant Number</label>
-					<span ng-show='(warrant_form.warrant_number.$touched && warrant_form.warrant_number.$invalid) || (warrant_form.$submitted && warrant_form.warrant_number.$invalid)' class='text-danger'>Required</span>
+					<span ng-show='(form.warrant_number.$touched && form.warrant_number.$invalid) || (form.$submitted && form.warrant_number.$invalid)' class='text-danger'>Required</span>
 					<input type='text' name='warrant_number' ng-model='warrant_number' class='form-control input-sm' required>
 				</div>
 
 
 				<div class='form-group col-xs-12 col-md-6 col-lg-3'>
 					<label for='charge'>Charge</label>
-					<span ng-show='(warrant_form.charge.$touched && warrant_form.charge.$invalid) || (warrant_form.$submitted && warrant_form.charge.$invalid)' class='text-danger'>Required</span>
+					<span ng-show='(form.charge.$touched && form.charge.$invalid) || (form.$submitted && form.charge.$invalid)' class='text-danger'>Required</span>
 					<input type='text' name='charge' ng-model='charge' class='form-control input-sm' required >
 				</div>
 
@@ -43,7 +43,7 @@
 				</div>
 				
 				<div class='col-xs-12'>
-					<button type='submit' class='btn btn-success' ng-click='addWarrant(warrant_form.$valid, municipality, charge, warrant_number, month, year)'>Add warrant</button>
+					<button type='submit' class='btn btn-success' ng-click='addWarrant(form.$valid, municipality, charge, warrant_number, month, year)'>Add warrant</button>
 				</div>
 
 			</div>
@@ -78,9 +78,8 @@
 	<br><br>
 
 		<div class='pull-right'>
-			<button type='button' class='btn btn-primary' wz-previous>Back</button>
-			<button type='button' class='btn btn-primary' wz-next>Continue</button>
+			<button type='button' class='btn-sm btn-primary' wz-previous>Back</button>
+			<button type='button' class='btn-sm btn-primary' ng-click='nextStep()'>Continue</button>
 		</div>
 		<br><br>
-	
 </body>

@@ -1,4 +1,4 @@
-myApp.controller('warrantsController', ['$scope', 'DropdownService', '$location', 'WizardHandler', function($scope, DropdownService, $location, WizardHandler) {
+myApp.controller('warrantsController', ['$scope', 'SubmissionService', 'DropdownService', '$location', 'WizardHandler', function($scope, SubmissionService, DropdownService, $location, WizardHandler) {
 	$scope.warrants = [];
 	$scope.municipality;
 	$scope.charge;
@@ -31,11 +31,9 @@ myApp.controller('warrantsController', ['$scope', 'DropdownService', '$location'
 		$scope.warrants = _.without($scope.warrants, current);
 	};
 
-	$scope.nextStep = function(isValid) {
-		console.log('Validating form. Valid? '+isValid)
-		if (isValid) {
+	$scope.nextStep = function() {
+			SubmissionService.setWarrants($scope);
 			WizardHandler.wizard().next();
-		}
 	}
 
 	if ($location.host()=='localhost') {
@@ -43,15 +41,15 @@ myApp.controller('warrantsController', ['$scope', 'DropdownService', '$location'
 			municipality: 'municipality1',
 			charge: 'charge',
 			warrant_number: '12345',
-			month: 5,
-			year: 2015
+			month: '5',
+			year: '2015'
 		},
 		{
 			municipality: 'municipality2',
 			charge: 'charge',
 			warrant_number: '54321',
-			month: 1,
-			year: 2012
+			month: '1',
+			year: '2012'
 		})
 	}
 

@@ -1,14 +1,14 @@
-myApp.controller('physicalAppearanceController', ['$scope', '$timeout', 'DropdownService', '$location', function($scope, $timeout, DropdownService, $location) {
+myApp.controller('physicalAppearanceController', ['$scope', 'SubmissionService', '$timeout', 'DropdownService', '$location', 'WizardHandler', function($scope, SubmissionService, $timeout, DropdownService, $location, WizardHandler) {
 		$scope.races = DropdownService.getRaceList();
 		$scope.nationalities = DropdownService.getNationalityList();
 		$scope.eye_colors = DropdownService.getEyeColorList();
 		$scope.hair_colors = DropdownService.getHairColorList();
-		$scope.race = '';
-		$scope.nationality = '';
+		$scope.race;
+		$scope.nationality;
 		$scope.weight = 180;
 		$scope.height = 70;
-		$scope.hair_color = '';
-		$scope.eye_color = '';
+		$scope.hair_color;
+		$scope.eye_color;
 		$scope.physical_characteristics;
 
 		 
@@ -42,9 +42,10 @@ myApp.controller('physicalAppearanceController', ['$scope', '$timeout', 'Dropdow
 		};
 
 
-		$scope.next = function(isValid) {
+		$scope.nextStep = function(isValid) {
 			console.log('Validating form. Valid? '+isValid)
 			if (isValid) {
+				SubmissionService.setPhysicalAppearance($scope);
 				WizardHandler.wizard().next();
 			}
 		}

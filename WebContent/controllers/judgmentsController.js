@@ -1,4 +1,4 @@
-myApp.controller('judgmentsController', ['$scope', 'DropdownService', '$location', 'WizardHandler', function($scope, DropdownService, $location, WizardHandler) {
+myApp.controller('judgmentsController', ['$scope', 'SubmissionService', 'DropdownService', '$location', 'WizardHandler', function($scope, SubmissionService, DropdownService, $location, WizardHandler) {
 		$scope.judgments = [];
 		$scope.municipality;
 		$scope.amount;
@@ -34,11 +34,9 @@ myApp.controller('judgmentsController', ['$scope', 'DropdownService', '$location
 			$scope.judgments = _.without($scope.judgments, current);
 		};
 
-		$scope.nextStep = function(isValid) {
-			console.log('Validating form. Valid? '+isValid)
-			if (isValid) {
-				WizardHandler.wizard().next();
-			}
+		$scope.nextStep = function() {
+			SubmissionService.setJudgments($scope);
+			WizardHandler.wizard().next();
 		}
 
 		

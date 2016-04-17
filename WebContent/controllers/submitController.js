@@ -1,4 +1,4 @@
-myApp.controller('subjectController', ['$scope', 'SubmissionService', 'DropdownService', '$location', 'WizardHandler', function($scope, SubmissionService, DropdownService, $location, WizardHandler) {
+myApp.controller('submitController', ['$scope', 'SubmissionService', 'DropdownService', '$location', 'WizardHandler', function($scope, SubmissionService, DropdownService, $location, WizardHandler) {
 	$scope.first_name;
 	$scope.middle_name;
 	$scope.last_name;
@@ -11,8 +11,7 @@ myApp.controller('subjectController', ['$scope', 'SubmissionService', 'DropdownS
 	$scope.nextStep = function(isValid) {
 		console.log('Validating form. Valid? '+isValid)
 		if (isValid) {
-			SubmissionService.setSubject($scope);
-			WizardHandler.wizard().next();
+			
 		}
 	}
 
@@ -25,6 +24,10 @@ myApp.controller('subjectController', ['$scope', 'SubmissionService', 'DropdownS
 		$scope.ssn = '123-45-6789';
 		$scope.dob = '1/1/1980';
 		$scope.background_info='Background info'
+	}
+
+	$scope.submit = function () {
+		console.log('Submitting information...')
 	}
 
 	

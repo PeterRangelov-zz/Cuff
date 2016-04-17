@@ -1,8 +1,8 @@
-myApp.controller('contributorController', ['$scope', 'DropdownService', '$location', 'WizardHandler', function($scope, DropdownService, $location, WizardHandler) {
+myApp.controller('contributorController', ['$scope', 'SubmissionService', 'DropdownService', '$location', 'WizardHandler', function($scope, SubmissionService, DropdownService, $location, WizardHandler) {
 	$scope.first_name;
 	$scope.last_name;
 	$scope.city;
-	$scope.state;
+	$scope.state = 'AL';
 	$scope.zipcode;
 	$scope.states = DropdownService.getStateList();
 	$scope.email_address;
@@ -13,6 +13,7 @@ myApp.controller('contributorController', ['$scope', 'DropdownService', '$locati
 	$scope.nextStep = function(isValid) {
 			console.log('Validating form. Valid? '+isValid)
 			if (isValid) {
+				SubmissionService.setContributor($scope);
 				WizardHandler.wizard().next();
 			}
 		}
