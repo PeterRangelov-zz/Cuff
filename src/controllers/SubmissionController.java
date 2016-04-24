@@ -19,7 +19,7 @@ public class SubmissionController {
 	 public Response submitContributorInfo(@FormParam("testInput") String testInput, @FormParam("contributor") String contributor) {
 		 System.out.println(testInput);
 		 System.out.println(contributor);
-		 return Response.ok().build();
+		 return Response.ok("Got it! " + testInput + contributor).build();
 	 }
 	 	 
 	 
