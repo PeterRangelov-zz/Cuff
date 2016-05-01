@@ -63,7 +63,7 @@ public class Mailer {
 	    
 	    StringBuffer judgmentsTable = new StringBuffer("<table><tr><td>Municipality</td><td>Judgment number</td><td>Amount</td><td>Issued</td></tr>");
     	for (Judgment j : judgments) {
-	    	warrantsTable
+    		judgmentsTable
 	    	.append("<tr>")
 	    		.append("<td>"+j.getMunicipality()+"</td>")
 	    		.append("<td>"+j.getJudgmentNumber()+"</td>")
