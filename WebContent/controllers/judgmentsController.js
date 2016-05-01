@@ -10,7 +10,6 @@ myApp.controller('judgmentsController', ['$scope', 'SubmissionService', 'Dropdow
 		$scope.judgment_years = _.range(2016, 1970, -1);
 		$scope.amountFilter;
 
-		// handle Add judgment function
 		$scope.addjudgment = function(isValid, municipality, amount, judgment_number, month, year) {
 			if (isValid) {
 				console.log('Adding judgment... ' + municipality + amount + judgment_number + month + year )
@@ -22,24 +21,19 @@ myApp.controller('judgmentsController', ['$scope', 'SubmissionService', 'Dropdow
 					year: year
 				});
 			}
-			
-			
 		};
 
 		$scope.removejudgment = function(municipality, amount, judgment_number, month, year) {
 			console.log('Removing judgment... ' + municipality + amount + judgment_number + month + year);
 			var current = _.findWhere($scope.judgments, {municipality: municipality, amount: amount, judgment_number: judgment_number, month: month, year: year});
 			console.log(current)
-
 			$scope.judgments = _.without($scope.judgments, current);
 		};
 
 		$scope.nextStep = function() {
-			SubmissionService.setJudgments($scope);
+			SubmissionService.setJudgments($scope.judgments);
 			WizardHandler.wizard().next();
 		}
-
-		
 
 		if ($location.host()=='localhost') {
 			$scope.judgments.push({
@@ -58,7 +52,4 @@ myApp.controller('judgmentsController', ['$scope', 'SubmissionService', 'Dropdow
 			})
 		}
 
-
-
-		
-	}])
+}])

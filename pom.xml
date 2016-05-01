@@ -61,7 +61,7 @@
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.1.0</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -89,6 +89,7 @@
 			<artifactId>jersey-json</artifactId>
 			<version>1.19.1</version>
 		</dependency>
+
 
 
 

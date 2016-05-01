@@ -1,5 +1,7 @@
 package dto;
 
+import java.util.ArrayList;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
 import lombok.AllArgsConstructor;
@@ -7,16 +9,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data @XmlRootElement @AllArgsConstructor @NoArgsConstructor
-public class Contributor {
+public class Subject {
 	private String firstName;
+	private String middleName;
 	private String lastName;
-	private String emailAddress;
-	private String phoneNumber;
-	private String preferredContactMethod;
+	private String aliases;
+	private String driversLicense;
+	private String ssn;
+	private String dob;
+	private String backgroundInfo;
 	
-	private String city;
-	private String state;
-	private String zipcode;
 	
 	
 

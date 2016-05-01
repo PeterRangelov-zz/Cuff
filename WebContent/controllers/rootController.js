@@ -1,4 +1,4 @@
-myApp.controller('rootController', ['$scope', '$http', 'SubmissionService', 'DropdownService', '$location', 'WizardHandler', function($scope, $http, SubmissionService, DropdownService, $location, WizardHandler) {
+myApp.controller('rootController', ['$scope', '$http', '$httpParamSerializerJQLike', 'SubmissionService', 'DropdownService', '$location', 'WizardHandler', function($scope, $http, $httpParamSerializerJQLike, SubmissionService, DropdownService, $location, WizardHandler) {
 	
 
 	
@@ -8,24 +8,35 @@ myApp.controller('rootController', ['$scope', '$http', 'SubmissionService', 'Dro
 			var contributor = SubmissionService.getContributor();
 			var subject = SubmissionService.getSubject();
 			var physicalAppearance = SubmissionService.getPhysicalAppearance();
-			var judgments = SubmissionService.getJudgments();
 			var warrants = SubmissionService.getWarrants();
+			var judgments = SubmissionService.getJudgments();
 			var criminalHistory = SubmissionService.getCriminalHistory();
+			
+			console.log(contributor)
+			console.log(subject)
+			console.log(physicalAppearance)
+			console.log(warrants)
 
 			// issue POST request
 			$http({
 				  method: 'POST',
 				  url: '/rest/submit',
-				  headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-				  data: {
+				  data: $httpParamSerializerJQLike({
 					  testInput: "TESTING!",
-					  contributor: "abc"
-				  }
-				}).then(function successCallback(response) {
-				   console.log(response)
-				  }, function errorCallback(response) {
-				   console.log(response)
-				  });
+					  contributor: JSON.stringify(contributor),
+					  subject: JSON.stringify(subject),
+					  physical_appearance: JSON.stringify(physicalAppearance),
+					  warrants: JSON.stringify(warrants),
+					  judgments: JSON.stringify(judgments)
+				  })
+				})
+				.then(
+			       function(response){
+			         console.log(response.data);
+			       }, 
+			       function(response){
+			         console.log(response);
+			    });
 			
 //			console.log(contributor)
 //			console.log(subject)

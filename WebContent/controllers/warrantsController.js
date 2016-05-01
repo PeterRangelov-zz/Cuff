@@ -32,7 +32,7 @@ myApp.controller('warrantsController', ['$scope', 'SubmissionService', 'Dropdown
 	};
 
 	$scope.nextStep = function() {
-			SubmissionService.setWarrants($scope);
+			SubmissionService.setWarrants($scope.warrants);
 			WizardHandler.wizard().next();
 	}
 

@@ -13,7 +13,18 @@ myApp.factory('SubmissionService', function () {
             return contributor;
         },
         setContributor: function (newVal) {
-            contributor = newVal;
+        	console.log(newVal)
+            contributor = {
+        		first_name:  newVal.first_name,
+        		last_name: newVal.last_name,
+        		email_address: newVal.email_address,
+        		phone_number: newVal.phone_number,
+        		preferred_contact_method: newVal.preferred_contact_method,
+        		city: newVal.city,
+        		state: newVal.state,
+        		zipcode: newVal.zipcode
+        	};
+        	console.log(contributor)
         },
         resetContributor: function () {
             contributor = {};
@@ -24,7 +35,16 @@ myApp.factory('SubmissionService', function () {
             return subject;
         },
         setSubject: function (newVal) {
-            subject = newVal;
+	    	subject = {
+        		first_name:  newVal.first_name,
+        		middle_name:  newVal.middle_name,
+        		last_name: newVal.last_name,
+        		aliases: newVal.aliases,
+        		drivers_license: newVal.drivers_license,
+        		ssn: newVal.ssn,
+        		dob: newVal.dob,
+        		background_info: newVal.background_info
+        	};
         },
         resetSubject: function () {
             subject = {};
@@ -35,7 +55,15 @@ myApp.factory('SubmissionService', function () {
             return physicalAppearance;
         },
         setPhysicalAppearance: function (newVal) {
-            physicalAppearance = newVal;
+        	physicalAppearance = {
+        		race:  newVal.race,
+        		nationality:  newVal.nationality,
+        		height: newVal.height,
+        		weight: newVal.weight,
+        		hair_color: newVal.hair_color,
+        		eye_color: newVal.eye_color,
+        		physical_characteristics: newVal.physical_characteristics
+        	};
         },
         resetPhysicalAppearance: function () {
             physicalAppearance = {};
@@ -54,6 +82,8 @@ myApp.factory('SubmissionService', function () {
             return warrants;
         },
         setWarrants: function (newVal) {
+        	console.log("setting warrants. new: ")
+        	console.log(newVal)
             warrants = newVal;
         },
         resetWarrants: function () {
