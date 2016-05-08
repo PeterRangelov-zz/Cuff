@@ -47,6 +47,7 @@ public class SubmissionController {
 		 System.out.println("Warrants: " + w);
 		 System.out.println("Judgments: " + j);
 		 
+		 System.out.println(pa.getHeight()/12 + " feet, " +pa.getHeight()%12+" inches");
 		 
 		 Mailer mailer = new Mailer();
 		 mailer.emailSubmission(c, s, pa, w, j);

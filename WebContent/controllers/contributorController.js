@@ -1,4 +1,4 @@
-myApp.controller('contributorController', ['$scope', 'SubmissionService', 'DropdownService', '$location', 'WizardHandler', function($scope, SubmissionService, DropdownService, $location, WizardHandler) {
+myApp.controller('contributorController', ['$scope', 'SubmissionService', 'DropdownService', '$location', function($scope, SubmissionService, DropdownService, $location) {
 	$scope.first_name;
 	$scope.last_name;
 	$scope.city;
@@ -10,11 +10,12 @@ myApp.controller('contributorController', ['$scope', 'SubmissionService', 'Dropd
 	$scope.preferred_contact_method='email';
 
 	
+	
 	$scope.nextStep = function(isValid) {
 			console.log('Validating form. Valid? '+isValid)
 			if (isValid) {
 				SubmissionService.setContributor($scope);
-				WizardHandler.wizard().next();
+				$location.path('subject')
 			}
 		}
 

@@ -2,17 +2,17 @@
 <html ng-app='myApp' >
 <head>
 	<link rel='stylesheet' href='lib/bootstrap-3.3.6.min.css'>
-	<link rel='stylesheet' href='lib/angularjs-slider-2.10.4.min.css'>
-	<link rel='stylesheet' href='lib/angular-wizard-0.6.0.min.css'>
 	<link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css' >
 
-	<script src='lib/angular-1.4.9.min.js'></script>
+	<!-- <script src='lib/angular-1.4.9.min.js'></script> -->
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>
+	 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.min.js"></script>
 	
-	<script type='text/javascript' src='lib/angular-wizard-0.6.0.min.js'></script>
 	<!-- <script type='text/javascript' src='//cdn.jsdelivr.net/livejs/4/live.js'></script> -->
-	<script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/angularjs-slider/2.10.4/rzslider.min.js'></script>
+	<!--  <script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/angularjs-slider/2.10.4/rzslider.min.js'></script>
 	<script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/angular-inview/1.5.7/angular-inview.min.js'></script>
-	
+	 -->
+	 
 	<script type='text/javascript' src='lib/underscore-1.8.3.min.js'></script>
 	<script type='text/javascript' src="//cdnjs.cloudflare.com/ajax/libs/angular-input-masks/2.2.0/angular-input-masks-standalone.min.js"></script>
 
@@ -37,63 +37,10 @@
 <body>
 	<div class='container'>
 		<div class='row'>
-			<div class='col-xs-12 col-md-9' ng-controller='rootController'>
-				<wizard on-finish='submit()' template='template.html'>
-
-					
-
-					<div ng-controller='contributorController'>
-						<wz-step wz-title='Your Info'>
-							<div ng-include="'partials/contributor.html'"></div>
-						</wz-step>
-					</div>
-
-					<div ng-controller='subjectController'>
-						<wz-step wz-title='Subject Info'>
-							<div ng-include="'partials/subject.html'"></div>
-						</wz-step>
-					</div>
-
-					<div ng-controller='physicalAppearanceController'>
-						<wz-step wz-title='Physical appearance'>
-							<div ng-include="'partials/physical_appearance.html'"></div>
-						</wz-step>
-					</div>
-					
-					
-					<div ng-controller='warrantsController'>
-						<wz-step wz-title='Warrants'>
-							<div ng-include="'partials/warrants.html'"></div>
-						</wz-step>
-					</div>
-
-					<div ng-controller='judgmentsController'>
-						<wz-step wz-title='Judgments'>
-							<div ng-include="'partials/judgments.html'"></div>
-						</wz-step>
-					</div>
-
-					<!-- 
-					<div ng-controller='criminalHistoryController'>
-						<wz-step wz-title='Criminal History'>
-							<div ng-include="'partials/criminal_history.html'"></div>
-						</wz-step>
-					</div> -->
-
-					<div ng-controller='submitController'>
-						<wz-step wz-title='Submit'>
-							<div ng-include="'partials/submit.html'"></div>
-						</wz-step>
-					</div>
-
-					
-					
-
-					
-					
-					
-				</wizard>
+			<div class='col-xs-12 col-md-9' ng-view>
 			</div>
+				
+				
 			<div class='visible-md visible-lg visible-xl col-md-2'>
 			</div>
 			
@@ -116,4 +63,10 @@
   ga('send', 'pageview');
 
 </script>
+<style>
+.breadcrumb > li + li:before {
+    content: "\00BB";
+    color: #aaa;
+}
+</style>
 </html>

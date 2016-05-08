@@ -1,4 +1,4 @@
-myApp.controller('rootController', ['$scope', '$http', '$httpParamSerializerJQLike', 'SubmissionService', 'DropdownService', '$location', 'WizardHandler', function($scope, $http, $httpParamSerializerJQLike, SubmissionService, DropdownService, $location, WizardHandler) {
+myApp.controller('rootController', ['$scope', '$http', '$httpParamSerializerJQLike', 'SubmissionService', 'DropdownService', '$location', function($scope, $http, $httpParamSerializerJQLike, SubmissionService, DropdownService, $location) {
 	
 
 	

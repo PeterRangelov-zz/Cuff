@@ -1,4 +1,4 @@
-myApp.controller('criminalHistoryController', ['$scope', 'SubmissionService', '$location', 'WizardHandler', function($scope, SubmissionService, $location, WizardHandler) {
+myApp.controller('criminalHistoryController', ['$scope', 'SubmissionService', '$location', function($scope, SubmissionService, $location) {
 		$scope.entries = [];
 		$scope.municipality;
 		$scope.charge;
@@ -29,10 +29,15 @@ myApp.controller('criminalHistoryController', ['$scope', 'SubmissionService', '$
 
 			$scope.entries = _.without($scope.entries, current);
 		};
+		
+		$scope.previousStep = function() {
+			console.log('Going back')
+			$location.path('judgments')
+		}
 
 		$scope.nextStep = function() {
 			SubmissionService.setCriminalHistory($scope);
-			WizardHandler.wizard().next();
+			$location.path('submit')
 		}
 
 

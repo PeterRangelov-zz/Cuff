@@ -1,5 +1,16 @@
 <!DOCTYPE html>
 <body>
+	<div>
+		<ul class="breadcrumb">
+          <li><a href='#contributor'>Your information</a></li>
+          <li class="active"><b>Subject information</b></li>
+          <li>Appearance</li>
+          <li>Warrants</li>
+          <li>Judgments</li>
+          <li>Criminal history</li>
+          <li>Review & Submit</li>
+	    </ul>
+	</div>
 	<h1 class='text-success'>Subject Information</h1>
 	<hr>						
 	<form name='form' novalidate>
@@ -102,8 +113,8 @@
 		</div>
 		
 		
-		<div class="pull-right">
-			<button type='button' class='btn-sm btn-primary' wz-previous>Back</button>
+		<div class="pull-right">			
+			<button type='button' class='btn-sm btn-primary' ng-click='previousStep()'>Back</button>
 			<button type='submit' class='btn-sm btn-primary' ng-click='nextStep(form.$valid)'>Continue</button>
 		</div>
 		<br><br>

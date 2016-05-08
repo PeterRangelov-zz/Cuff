@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 public class PhysicalAppearance {
 	private String race;
 	private String nationality;
-	private String height;
-	private String weight;
+	private int height;
+	private int weight;
 	private String hairColor;
 	private String eyeColor;
 	private String physicalCharacteristics;

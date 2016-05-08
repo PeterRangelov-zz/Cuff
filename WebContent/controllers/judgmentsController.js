@@ -1,4 +1,4 @@
-myApp.controller('judgmentsController', ['$scope', 'SubmissionService', 'DropdownService', '$location', 'WizardHandler', function($scope, SubmissionService, DropdownService, $location, WizardHandler) {
+myApp.controller('judgmentsController', ['$scope', 'SubmissionService', 'DropdownService', '$location', function($scope, SubmissionService, DropdownService, $location) {
 		$scope.judgments = [];
 		$scope.municipality;
 		$scope.amount;
@@ -30,9 +30,14 @@ myApp.controller('judgmentsController', ['$scope', 'SubmissionService', 'Dropdow
 			$scope.judgments = _.without($scope.judgments, current);
 		};
 
+		$scope.previousStep = function() {
+			console.log('Going back')
+			$location.path('warrants')
+		}
+		
 		$scope.nextStep = function() {
 			SubmissionService.setJudgments($scope.judgments);
-			WizardHandler.wizard().next();
+			$location.path('criminal_history')
 		}
 
 		if ($location.host()=='localhost') {

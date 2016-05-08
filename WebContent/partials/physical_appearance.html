@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<head>
-	<script type='text/javascript' src='//cdn.jsdelivr.net/livejs/4/live.js'></script>
-	
-</head>
+
 <body >
-	<h1 class='text-success'>Physical Characteristics</h1>
+	<div>
+		<ul class="breadcrumb">
+          <li><a href='#contributor'>Your information</a></li>
+          <li><a href='#subject'>Subject information</a></li>
+          <li class='active'><b>Appearance</b></li>
+          <li>Warrants</li>
+          <li>Judgments</li>
+          <li>Criminal history</li>
+          <li>Review & Submit</li>
+	    </ul>
+	</div>
+	<h1 class='text-success'>Physical Appearance</h1>
 	<hr>
 	<form name='form' novalidate in-view='refreshSlider()'>
 		<div class='row'>
@@ -29,16 +37,26 @@
 
 		<div class='row'>
 			<div class='col-xs-12 col-sm-6'>
+				<!--
 				<div class='form-group'>
 					<label for='height'>Height</label>
 						<rzslider rz-slider-model='height' rz-slider-options='height_slider.options' id='height_slider'></rzslider>
+				</div>
+				-->
+				<div class='form-group'>
+					<label for='height'>Height</label>
+						<select name='height' id='height' ng-model='height' class='form-control input-sm'>
+							<option ng-repeat='h in heights' value='{{h}}'>{{Math.floor(h/12)}}' {{h%12}}" | {{Math.floor(h*2.54)}} cm</option>
+						</select>
 				</div>
 			</div>
 
 			<div class='col-xs-12 col-sm-6'>
 				<div class='form-group'>
 					<label for='weight'>Weight</label>
-					<rzslider rz-slider-model='weight' rz-slider-options='weight_slider.options'></rzslider>
+					<select name='weight' ng-model='weight' class='form-control input-sm'>
+						<option ng-repeat='w in weights' value='{{w}}'>{{w}} lbs | {{Math.floor(w*0.453592)}} kg</option>
+					</select>
 				</div>
 			</div>
 		</div>
@@ -75,7 +93,7 @@
 
 
 		<div class='pull-right'>
-			<button type='button' class='btn-sm btn-primary' wz-previous>Back</button>
+			<button type='button' class='btn-sm btn-primary' ng-click='previousStep()'>Back</button>
 			<button type='button' class='btn-sm btn-primary' ng-click='nextStep(form.$valid)'>Continue</button>
 		</div>
 		<br><br>

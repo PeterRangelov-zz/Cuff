@@ -1,4 +1,4 @@
-myApp.controller('submitController', ['$scope', 'SubmissionService', 'DropdownService', '$location', 'WizardHandler', function($scope, SubmissionService, DropdownService, $location, WizardHandler) {
+myApp.controller('submitController', ['$scope', 'SubmissionService', 'DropdownService', '$http', '$location', '$httpParamSerializerJQLike', function($scope, SubmissionService, DropdownService, $http, $location, $httpParamSerializerJQLike) {
 	$scope.first_name;
 	$scope.middle_name;
 	$scope.last_name;
@@ -8,6 +8,11 @@ myApp.controller('submitController', ['$scope', 'SubmissionService', 'DropdownSe
 	$scope.dob;
 	$scope.background_info;
 
+	$scope.previousStep = function() {
+		console.log('Going back')
+		$location.path('criminal_history')
+	}
+	
 	$scope.nextStep = function(isValid) {
 		console.log('Validating form. Valid? '+isValid)
 		if (isValid) {
@@ -26,8 +31,49 @@ myApp.controller('submitController', ['$scope', 'SubmissionService', 'DropdownSe
 		$scope.background_info='Background info'
 	}
 
-	$scope.submit = function () {
-		console.log('Submitting information...')
+	$scope.submit = function() {
+		// if (isValid) {
+			console.log('Submitting to WS')
+			var contributor = SubmissionService.getContributor();
+			var subject = SubmissionService.getSubject();
+			var physicalAppearance = SubmissionService.getPhysicalAppearance();
+			var warrants = SubmissionService.getWarrants();
+			var judgments = SubmissionService.getJudgments();
+			var criminalHistory = SubmissionService.getCriminalHistory();
+			
+			console.log(contributor)
+			console.log(subject)
+			console.log(physicalAppearance)
+			console.log(warrants)
+
+			// issue POST request
+			$http({
+				  method: 'POST',
+				  url: '/rest/submit',
+				  data: $httpParamSerializerJQLike({
+					  testInput: "TESTING!",
+					  contributor: JSON.stringify(contributor),
+					  subject: JSON.stringify(subject),
+					  physical_appearance: JSON.stringify(physicalAppearance),
+					  warrants: JSON.stringify(warrants),
+					  judgments: JSON.stringify(judgments)
+				  })
+				})
+				.then(
+			       function(response){
+			         console.log(response.data);
+			       }, 
+			       function(response){
+			         console.log(response);
+			    });
+			
+//			console.log(contributor)
+//			console.log(subject)
+//			console.log(physicalAppearance)
+//			console.log(judgments)
+//			console.log(warrants)
+//			console.log(criminalHistory)
+		// }
 	}
 
 	

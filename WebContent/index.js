@@ -1,5 +1,44 @@
-var myApp = angular.module("myApp", ["mgo-angular-wizard", "rzModule", "angular-inview", 'ui.utils.masks']);
+var myApp = angular.module("myApp", ['ui.utils.masks', 'ngRoute']);
 
+myApp.controller
+
+myApp.config(['$routeProvider', function($routeProvider) {
+	$routeProvider
+		.when('/', {
+			templateUrl: 'partials/contributor.html',
+			controller: 'contributorController'
+		})
+		.when('/contributor', {
+			templateUrl: 'partials/contributor.html',
+			controller: 'contributorController'
+		})
+		.when('/subject', {
+			templateUrl: 'partials/subject.html',
+			controller: 'subjectController'
+		})
+		.when('/appearance', {
+			templateUrl: 'partials/physical_appearance.html',
+			controller: 'physicalAppearanceController'
+		})
+		.when('/warrants', {
+			templateUrl: 'partials/warrants.html',
+			controller: 'warrantsController'
+		})
+		.when('/judgments', {
+			templateUrl: 'partials/judgments.html',
+			controller: 'judgmentsController'
+		})
+		.when('/criminal_history', {
+			templateUrl: 'partials/criminal_history.html',
+			controller: 'criminalHistoryController'
+		})
+		.when('/submit', {
+			templateUrl: 'partials/submit.html',
+			controller: 'submitController'
+		})
+
+
+}]);
 
 
 

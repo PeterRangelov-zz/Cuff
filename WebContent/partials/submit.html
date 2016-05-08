@@ -1,5 +1,16 @@
 <!DOCTYPE html>
 <body>
+	<div>
+		<ul class="breadcrumb">
+          <li><a href='#contributor'>Your information</a></li>
+          <li><a href='#subject'>Subject information</a></li>
+          <li><a href='#appearance'>Appearance</a></li>
+          <li><a href='#warrants'>Warrants</a></li>
+          <li><a href='#judgments'>Judgments</a></li>
+          <li><a href='#criminal_history'>Criminal history</a></li>
+          <li class='active'><b>Review & Submit</b></li>
+	    </ul>
+	</div>
 	<h1 class='text-success'>Review & Submit</h1>
 	<hr>
 
@@ -16,8 +27,8 @@
 	<br><br>
 
 		<div class='pull-right'>
-			<button type='button' class='btn-sm btn-primary' wz-previous>Back</button>
-			<button type='button' class='btn-sm btn-primary' wz-finish>Submit</button>
+			<button type='button' class='btn-sm btn-primary' ng-click='previousStep()'>Back</button>
+			<button type='button' class='btn-sm btn-primary' ng-click='submit()'>Submit</button>
 		</div>
 		<br><br>
 	
