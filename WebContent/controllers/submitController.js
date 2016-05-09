@@ -62,6 +62,7 @@ myApp.controller('submitController', ['$scope', 'SubmissionService', 'DropdownSe
 				.then(
 			       function(response){
 			         console.log(response.data);
+			         $location.path('confirmation')
 			       }, 
 			       function(response){
 			         console.log(response);
