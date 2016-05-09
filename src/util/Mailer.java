@@ -40,7 +40,7 @@ public class Mailer {
 			
 	}
 	
-	public void emailSubmission (Contributor c, Subject s, PhysicalAppearance pa, List<Warrant> warrants, List<Judgment> judgments) {
+	public void emailSubmission (Contributor c, Subject s, PhysicalAppearance pa, List<Warrant> warrants, List<Judgment> judgments) throws InterruptedException {
 		SendGrid sendgrid = new SendGrid(SENDGRID_API_KEY);
 
 	    Email email = new Email();
@@ -104,6 +104,7 @@ public class Mailer {
 	    	.addSubstitution(":warrants_table", warrantsTable.toString())
 	    	.addSubstitution(":judgments_table", judgmentsTable.toString())
 	    	;
+	    Thread.sleep(1000);
 	    	
 	    email.setHtml("Thank you for your submission --CUFF Team");
 	    

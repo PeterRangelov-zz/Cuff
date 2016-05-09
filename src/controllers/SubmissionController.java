@@ -33,7 +33,7 @@ public class SubmissionController {
 	 }
 	 
 	 @POST @Consumes(MediaType.APPLICATION_JSON) @Produces(MediaType.TEXT_PLAIN)
-	 public Response submitContributorInfo(@FormParam("testInput") String testInput, @FormParam("contributor") String contributor, @FormParam("subject") String subject, @FormParam("physical_appearance") String physicalAppearance, @FormParam("warrants") String warrants, @FormParam("judgments") String judgments) throws JsonParseException, JsonMappingException, IOException {
+	 public Response submitContributorInfo(@FormParam("testInput") String testInput, @FormParam("contributor") String contributor, @FormParam("subject") String subject, @FormParam("physical_appearance") String physicalAppearance, @FormParam("warrants") String warrants, @FormParam("judgments") String judgments) throws JsonParseException, JsonMappingException, IOException, InterruptedException {
 		 ObjectMapper mapper = new ObjectMapper().setPropertyNamingStrategy(PropertyNamingStrategy.CAMEL_CASE_TO_LOWER_CASE_WITH_UNDERSCORES);
 		 Contributor c = mapper.readValue(contributor, Contributor.class);
 		 Subject s = mapper.readValue(subject, Subject.class);
