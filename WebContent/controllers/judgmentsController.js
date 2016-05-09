@@ -39,22 +39,30 @@ myApp.controller('judgmentsController', ['$scope', 'SubmissionService', 'Dropdow
 			SubmissionService.setJudgments($scope.judgments);
 			$location.path('criminal_history')
 		}
+		
+		if (!_.isEmpty(SubmissionService.getJudgments())) {
+			console.log('SubmissionService contains Judgments information: ')
+			var j = SubmissionService.getJudgments()
+			console.log(j)
+			
+			$scope.judgments = j;
+		}
 
 		if ($location.host()=='localhost') {
-			$scope.judgments.push({
-				municipality: 'municipality 1',
-				amount: '1500',
-				judgment_number: '12345',
-				month: 5,
-				year: 2015
-			},
-			{
-				municipality: 'municipality 2',
-				amount: '2500',
-				judgment_number: '54321',
-				month: 1,
-				year: 2012
-			})
+//			$scope.judgments.push({
+//				municipality: 'municipality 1',
+//				amount: '1500',
+//				judgment_number: '12345',
+//				month: 5,
+//				year: 2015
+//			},
+//			{
+//				municipality: 'municipality 2',
+//				amount: '2500',
+//				judgment_number: '54321',
+//				month: 1,
+//				year: 2012
+//			})
 		}
 
 }])

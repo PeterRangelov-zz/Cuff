@@ -1,4 +1,4 @@
-myApp.factory('SubmissionService', function () {
+myApp.factory('SubmissionService', function ($cookies, $cookieStore) {
     var contributor = {};
     var subject = {};
     var physicalAppearance = {};
@@ -10,11 +10,25 @@ myApp.factory('SubmissionService', function () {
     return {
         // Contributor
         getContributor: function () {
-            return contributor;
+        	console.log('getting contributor from cookies')
+//        	c = $cookieStore.get('contributor');
+//        	console.log(c)
+//            return c;
+        	return contributor;
         },
         setContributor: function (newVal) {
         	console.log(newVal)
-            contributor = {
+//            c = {
+//        		first_name:  newVal.first_name,
+//        		last_name: newVal.last_name,
+//        		email_address: newVal.email_address,
+//        		phone_number: newVal.phone_number,
+//        		preferred_contact_method: newVal.preferred_contact_method,
+//        		city: newVal.city,
+//        		state: newVal.state,
+//        		zipcode: newVal.zipcode
+//        	};
+        	contributor = {
         		first_name:  newVal.first_name,
         		last_name: newVal.last_name,
         		email_address: newVal.email_address,
@@ -24,7 +38,8 @@ myApp.factory('SubmissionService', function () {
         		state: newVal.state,
         		zipcode: newVal.zipcode
         	};
-        	console.log(contributor)
+//        	$cookieStore.put('contributor', c)
+//        	console.log(c)
         },
         resetContributor: function () {
             contributor = {};

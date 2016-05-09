@@ -1,6 +1,6 @@
-var myApp = angular.module("myApp", ['ui.utils.masks', 'ngRoute']);
+var myApp = angular.module("myApp", ['ui.utils.masks', 'ngRoute', 'ngCookies']);
 
-myApp.controller
+//myApp.controller
 
 myApp.config(['$routeProvider', function($routeProvider) {
 	$routeProvider

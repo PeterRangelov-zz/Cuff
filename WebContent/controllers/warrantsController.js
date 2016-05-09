@@ -40,22 +40,30 @@ myApp.controller('warrantsController', ['$scope', 'SubmissionService', 'Dropdown
 		SubmissionService.setWarrants($scope.warrants);
 		$location.path('judgments')
 	}
+	
+	if (!_.isEmpty(SubmissionService.getWarrants())) {
+		console.log('SubmissionService contains Warrants information: ')
+		var w = SubmissionService.getWarrants()
+		console.log(w)
+		
+		$scope.warrants = w;
+	}
 
 	if ($location.host()=='localhost') {
-		$scope.warrants.push({
-			municipality: 'municipality1',
-			charge: 'charge',
-			warrant_number: '12345',
-			month: '5',
-			year: '2015'
-		},
-		{
-			municipality: 'municipality2',
-			charge: 'charge',
-			warrant_number: '54321',
-			month: '1',
-			year: '2012'
-		})
+//		$scope.warrants.push({
+//			municipality: 'municipality1',
+//			charge: 'charge',
+//			warrant_number: '12345',
+//			month: '5',
+//			year: '2015'
+//		},
+//		{
+//			municipality: 'municipality2',
+//			charge: 'charge',
+//			warrant_number: '54321',
+//			month: '1',
+//			year: '2012'
+//		})
 	}
 
 		

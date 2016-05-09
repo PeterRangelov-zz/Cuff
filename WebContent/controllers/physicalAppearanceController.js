@@ -14,37 +14,6 @@ myApp.controller('physicalAppearanceController', ['$scope', 'SubmissionService',
 		$scope.eye_color;
 		$scope.physical_characteristics;
 
-		 
-//		$scope.refreshSlider = function () {
-//        	$scope.$broadcast('rzSliderForceRender');
-//    	};
-
-
-//		$scope.height_slider = {
-//		  value: 70,
-//		  options: {
-//		    floor: 48,
-//		    ceil: 96,
-//		    translate: function (value) {
-//		    	return window.Math.floor(value / 12) + ' feet, ' + value % 12 + ' inches | ' + window.Math.round(value * 2.54) + ' cm'
-//    		},
-//		    hideLimitLabels: true,
-//		  }
-//		};
-		
-//		$scope.weight_slider = {
-//		  value: 180,
-//		  options: {
-//		    floor: 90,
-//		    ceil: 450,
-//		    translate: function (value) {
-//		    	return value + ' lbs | ' + window.Math.round(value * 0.453592) + ' kg'
-//    		},
-//		    hideLimitLabels: true
-//		  }
-//		};
-
-
 		$scope.previousStep = function() {
 			console.log('Going back')
 			$location.path('subject')
@@ -60,7 +29,21 @@ myApp.controller('physicalAppearanceController', ['$scope', 'SubmissionService',
 				$location.path('warrants')
 			}
 		}
-
+		
+		if (!_.isEmpty(SubmissionService.getPhysicalAppearance())) {
+			console.log('SubmissionService contains PhysicalAppearance information: ')
+			var pa = SubmissionService.getPhysicalAppearance()
+			console.log(pa)
+			
+			$scope.race = pa.race;
+			$scope.nationality = pa.nationality;
+			$scope.height = pa.height;
+			$scope.weight = pa.weight;
+			$scope.hair_color = pa.hair_color;
+			$scope.eye_color = pa.eye_color;
+			$scope.physical_characteristics = pa.physical_characteristics;
+		}
+		
 		if ($location.host()=='localhost') {
 //			$scope.race = 'Caucasian';
 //			$scope.nationality = 'American';

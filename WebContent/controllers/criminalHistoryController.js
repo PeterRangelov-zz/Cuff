@@ -36,24 +36,32 @@ myApp.controller('criminalHistoryController', ['$scope', 'SubmissionService', '$
 		}
 
 		$scope.nextStep = function() {
-			SubmissionService.setCriminalHistory($scope);
+			SubmissionService.setCriminalHistory($scope.entries);
 			$location.path('submit')
+		}
+		
+		if (!_.isEmpty(SubmissionService.getCriminalHistory())) {
+			console.log('SubmissionService contains Criminal History information: ')
+			var ch = SubmissionService.getCriminalHistory()
+			console.log(ch)
+			
+			$scope.entries = ch;
 		}
 
 
 		if ($location.host()=='localhost') {
-			$scope.entries.push({
-				municipality: 'municipality1',
-				charge: 'charge',
-				month: 5,
-				year: 2015
-			},
-			{
-				municipality: 'municipality2',
-				charge: 'charge',
-				month: 1,
-				year: 2012
-			})
+//			$scope.entries.push({
+//				municipality: 'municipality1',
+//				charge: 'charge',
+//				month: 5,
+//				year: 2015
+//			},
+//			{
+//				municipality: 'municipality2',
+//				charge: 'charge',
+//				month: 1,
+//				year: 2012
+//			})
 		}
 
 		
