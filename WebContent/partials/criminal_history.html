@@ -24,29 +24,31 @@
 
 	<form name='form' novalidate>
 		<div class='row'>
-			<div class='form-group col-xs-12 col-md-6 col-lg-3'>
+			<div class='form-group col-xs-12 col-lg-3'>
 				<label for='municipality'>Municipality</label>
 				<span ng-show='(form.municipality.$touched && form.municipality.$invalid) || (form.$submitted && form.municipality.$invalid)' class='text-danger'>Required</span>
 				<input type='text' name='municipality' ng-model='municipality' class='form-control input-sm' required>
 			</div>
-				<div class='form-group col-xs-12 col-md-6 col-lg-3'>
+				<div class='form-group col-xs-12 col-lg-3'>
 					<label for='charge'>Charge</label>
 					<span ng-show='(form.charge.$touched && form.charge.$invalid) || (form.$submitted && form.charge.$invalid)' class='text-danger'>Required</span>
 					<input type='text' name='charge' ng-model='charge' class='form-control input-sm' required >
 				</div>
 
-				<div class='form-group col-xs-12 col-md-2 col-lg-1'>
+				<div class='form-group col-xs-12 col-lg-2'>
 					<label for='month'>Month</label>
-					<select name='month' ng-model='month' class='input-sm form-control'>
-						<option ng-repeat='month in months' value='{{month}}'>{{month}}</option>
+					<span ng-show='(form.month.$touched && form.month.$invalid) || (form.$submitted && form.month.$invalid)' class='text-danger'>Required</span>
+					<select name='month' ng-model='month' class='input-sm form-control' required>
+						<option ng-repeat='m in months' value='{{m}}'>{{m}}</option>
 					</select>
 				</div>
 
 
-				<div class='form-group col-xs-12 col-md-2 col-lg-2'>
-					<label for='charge'>Year</label>
-					<select name='year' ng-model='year' class='form-control input-sm'>
-						<option ng-repeat='year in years' value='{{year}}'>{{year}}</option>
+				<div class='form-group col-xs-12 col-lg-2'>
+					<label for='year'>Year</label>
+					<span ng-show='(form.year.$touched && form.year.$invalid) || (form.$submitted && form.year.$invalid)' class='text-danger'>Required</span>
+					<select name='year' ng-model='year' class='form-control input-sm' required>
+						<option ng-repeat='y in years' value='{{y}}'>{{y}}</option>
 					</select>
 				</div>
 				

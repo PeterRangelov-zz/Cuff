@@ -3,11 +3,11 @@ myApp.controller('judgmentsController', ['$scope', 'SubmissionService', 'Dropdow
 		$scope.municipality;
 		$scope.amount;
 		$scope.judgment_number;
-		$scope.judgment_month = '1';
-		$scope.judgment_year = '2016';
+		$scope.month;
+		$scope.year;
 
-		$scope.judgment_months = _.range(1, 13);
-		$scope.judgment_years = _.range(2016, 1970, -1);
+		$scope.months = _.range(1, 13);
+		$scope.years = _.range(2016, 1970, -1);
 		$scope.amountFilter;
 
 		$scope.addjudgment = function(isValid, municipality, amount, judgment_number, month, year) {

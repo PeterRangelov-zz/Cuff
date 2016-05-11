@@ -34,6 +34,7 @@ myApp.factory('SubmissionService', function ($cookies, $cookieStore) {
         		email_address: newVal.email_address,
         		phone_number: newVal.phone_number,
         		preferred_contact_method: newVal.preferred_contact_method,
+        		relationship: newVal.relationship,
         		city: newVal.city,
         		state: newVal.state,
         		zipcode: newVal.zipcode

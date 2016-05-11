@@ -13,47 +13,49 @@
 	</div>
 	<h1 class='text-success'>Active/Inactive Judgments</h1>
 	<hr>
-	<form name='judgment_form' novalidate>
+	<form name='form' novalidate>
 		<div class='row'>
-			<div class='form-group col-xs-12 col-md-6 col-lg-3'>
+			<div class='form-group col-xs-12 col-md-6'>
 				<label for='municipality'>Municipality</label>
-				<span ng-show="(judgment_form.municipality.$touched && judgment_form.municipality.$invalid) || (judgment_form.$submitted && judgment_form.municipality.$invalid)" class='text-danger'>Required</span>
-				<input type='text' name='municipality' ng-model='municipality' class='form-control input-sm' required>
+				<span ng-show="(form.municipality.$touched && form.municipality.$invalid) || (form.$submitted && form.municipality.$invalid)" class='text-danger'>Required</span>
+				<input type='text' name='municipality' ng-model='municipality' class='form-control input-sm' required maxlength='30'>
 			</div>
 
 
-				<div class='form-group col-xs-12 col-md-6 col-lg-3'>
+				<div class='form-group col-xs-12 col-md-6'>
 					<label for='judgment_number'>Judgment Number</label>
-					<span ng-show="(judgment_form.judgment_number.$touched && judgment_form.judgment_number.$invalid) || (judgment_form.$submitted && judgment_form.judgment_number.$invalid)" class='text-danger'>Required</span>
-					<input type='text' name='judgment_number' ng-model='judgment_number' class='form-control input-sm' required>
+					<span ng-show="(form.judgment_number.$touched && form.judgment_number.$invalid) || (form.$submitted && form.judgment_number.$invalid)" class='text-danger'>Required</span>
+					<input type='text' name='judgment_number' ng-model='judgment_number' class='form-control input-sm' required maxlength='30'>
 				</div>
 
 
-				<div class='form-group col-xs-12 col-md-6 col-lg-3'>
+				<div class='form-group col-xs-12 col-md-6'>
 					<label for='amount'>Amount</label>
-					<span ng-show="(judgment_form.amount.$touched && judgment_form.amount.$invalid) || (judgment_form.$submitted && judgment_form.amount.$invalid)" class='text-danger'>Required</span>
-					<input type='text' name='amount' ng-model='amount' class='form-control input-sm' ui-money-mask required>
+					<span ng-show="(form.amount.$touched && form.amount.$invalid) || (form.$submitted && form.amount.$invalid)" class='text-danger'>Required</span>
+					<input type='text' name='amount' ng-model='amount' class='form-control input-sm' ui-money-mask required maxlength='20'>
 				</div>
 
 
 
-				<div class='form-group col-xs-12 col-md-2 col-lg-1'>
-					<label for='judgment_month'>Month</label>
-					<select name='judgment_month' ng-model='judgment_month' class='input-sm form-control'>
-						<option ng-repeat="judgment_month in judgment_months" value="{{judgment_month}}">{{judgment_month}}</option>
+				<div class='form-group col-xs-12 col-md-3'>
+					<label for='month'>Month</label>
+					<span ng-show='(form.month.$touched && form.month.$invalid) || (form.$submitted && form.month.$invalid)' class='text-danger'>Required</span>
+					<select name='month' ng-model='month' class='input-sm form-control' required>
+						<option ng-repeat='m in months' value='{{m}}'>{{m}}</option>
 					</select>
 				</div>
 
 
-				<div class='form-group col-xs-12 col-md-2 col-lg-2'>
-					<label for='charge'>Year</label>
-					<select name='judgment_year' ng-model='judgment_year' class='form-control input-sm'>
-						<option ng-repeat="judgment_year in judgment_years" value="{{judgment_year}}">{{judgment_year}}</option>
+				<div class='form-group col-xs-12 col-md-3'>
+					<label for='year'>Year</label>
+					<span ng-show='(form.year.$touched && form.year.$invalid) || (form.$submitted && form.year.$invalid)' class='text-danger'>Required</span>
+					<select name='year' ng-model='year' class='form-control input-sm' required>
+						<option ng-repeat='y in years' value='{{y}}'>{{y}}</option>
 					</select>
 				</div>
 				
 				<div class='col-xs-12'>
-					<button type='submit' class='btn btn-success' ng-click='addjudgment(judgment_form.$valid, municipality, amount, judgment_number, judgment_month, judgment_year)'>Add judgment</button>
+					<button type='submit' class='btn btn-success' ng-click='addjudgment(form.$valid, municipality, amount, judgment_number, month, year)'>Add judgment</button>
 				</div>
 
 			</div>

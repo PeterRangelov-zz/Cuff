@@ -4,6 +4,7 @@ myApp.service('DropdownService', function($http) {
 	var nationalityList = {content:null}
 	var eyeColorList = {content:null}
 	var hairColorList = {content:null}
+	var relationshipList = {content:null}
 
 	$http.get("dropdown_values/states.json").then(function(response) {
     	console.log(response.data)
@@ -29,6 +30,11 @@ myApp.service('DropdownService', function($http) {
     	console.log(response.data)
     	hairColorList.content = response.data;
 	});
+	
+	$http.get("dropdown_values/relationship_to_subject.json").then(function(response) {
+    	console.log(response.data)
+    	relationshipList.content = response.data;
+	});
 
 
 	this.getStateList = function() {
@@ -49,6 +55,10 @@ myApp.service('DropdownService', function($http) {
 
 	this.getHairColorList = function() {
 		return hairColorList;
+	}
+	
+	this.getRelationshipList = function() {
+		return relationshipList;
 	}
 	   
 

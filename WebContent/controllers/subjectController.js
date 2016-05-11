@@ -1,4 +1,5 @@
 myApp.controller('subjectController', ['$scope', 'SubmissionService', 'DropdownService', '$location', function($scope, SubmissionService, DropdownService, $location) {
+	$scope.gender='male';
 	$scope.first_name;
 	$scope.middle_name;
 	$scope.last_name;

@@ -2,8 +2,8 @@ myApp.controller('criminalHistoryController', ['$scope', 'SubmissionService', '$
 		$scope.entries = [];
 		$scope.municipality;
 		$scope.charge;
-		$scope.month = '1';
-		$scope.year = '2016';
+		$scope.month;
+		$scope.year;
 
 		$scope.months = _.range(1, 13);
 		$scope.years = _.range(2016, 1970, -1);

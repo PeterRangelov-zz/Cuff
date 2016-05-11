@@ -83,6 +83,7 @@ public class Mailer {
 	    	.addSubstitution(":contributor_email_address", c.getEmailAddress())
 	    	.addSubstitution(":contributor_phone_number", c.getPhoneNumber())
 	    	.addSubstitution(":contributor_preferred_contact_method", c.getPreferredContactMethod())
+	    	.addSubstitution(":contributor_relationship_to_subject", c.getRelationship())
 	    	.addSubstitution(":contributor_city", c.getCity())
 	    	.addSubstitution(":contributor_state", c.getState())
 	    	.addSubstitution(":contributor_zipcode", c.getZipcode())

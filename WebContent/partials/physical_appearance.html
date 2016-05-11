@@ -14,14 +14,14 @@
 	</div>
 	<h1 class='text-success'>Physical Appearance</h1>
 	<hr>
-	<form name='form' novalidate in-view='refreshSlider()'>
+	<form name='form' novalidate>
 		<div class='row'>
 			<div class='col-xs-12 col-sm-6'>
 				<div class='form-group'>
 					<label for='race'>Race</label>
 					<span ng-show='(form.race.$touched && form.race.$invalid) || (form.$submitted && form.race.$invalid)' class='text-danger'>Required</span>
 					<select name='race' ng-model='race' class='form-control input-sm' required>
-						<option ng-repeat='race in races.content' value='{{race}}'>{{race}}</option>
+						<option ng-repeat='r in races.content' value='{{r}}'>{{r}}</option>
 					</select>
 				</div>
 			</div>
@@ -30,19 +30,13 @@
 				<div class='form-group'>
 					<label for='nationality'>Nationality</label>
 					<span ng-show='(form.nationality.$touched && form.nationality.$invalid) || (form.$submitted && form.nationality.$invalid)' class='text-danger'>Required</span>
-					<input type='text' name='nationality' ng-model='nationality' class='form-control input-sm' required>
+					<input type='text' name='nationality' ng-model='nationality' class='form-control input-sm' required maxlength='30'>
 				</div>
 			</div>
 		</div>
 
 		<div class='row'>
 			<div class='col-xs-12 col-sm-6'>
-				<!--
-				<div class='form-group'>
-					<label for='height'>Height</label>
-						<rzslider rz-slider-model='height' rz-slider-options='height_slider.options' id='height_slider'></rzslider>
-				</div>
-				-->
 				<div class='form-group'>
 					<label for='height'>Height</label>
 						<select name='height' id='height' ng-model='height' class='form-control input-sm'>
@@ -85,7 +79,7 @@
 
 		<div class='form-group'>
 			<label for='physical_characteristics'>Other phyiscal characteristics</label>
-			<textarea name='physical_characteristics' ng-model='physical_characteristics' class='form-control input-sm' ></textarea>
+			<textarea name='physical_characteristics' ng-model='physical_characteristics' class='form-control input-sm' maxlength='400' placeholder='Enter all unique physical traits of the subject. e.g.: Limps on left foot; Speech impediment; Lazy right eye; Bald; Wears glasses'></textarea>
 		</div>
 
 		 
@@ -94,7 +88,7 @@
 
 		<div class='pull-right'>
 			<button type='button' class='btn-sm btn-primary' ng-click='previousStep()'>Back</button>
-			<button type='button' class='btn-sm btn-primary' ng-click='nextStep(form.$valid)'>Continue</button>
+			<button type='submit' class='btn-sm btn-primary' ng-click='nextStep(form.$valid)'>Continue</button>
 		</div>
 		<br><br>
 	</form>

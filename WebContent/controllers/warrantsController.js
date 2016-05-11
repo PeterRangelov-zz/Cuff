@@ -3,8 +3,8 @@ myApp.controller('warrantsController', ['$scope', 'SubmissionService', 'Dropdown
 	$scope.municipality;
 	$scope.charge;
 	$scope.warrant_number;
-	$scope.month = '1';
-	$scope.year = '2016';
+	$scope.month;
+	$scope.year;
 
 	$scope.warrant_months = _.range(1, 13);
 	$scope.warrant_years = _.range(2016, 1970, -1);

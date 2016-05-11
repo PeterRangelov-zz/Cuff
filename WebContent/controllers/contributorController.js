@@ -1,15 +1,16 @@
 myApp.controller('contributorController', ['$scope', 'SubmissionService', 'DropdownService', '$location', '$cookies', function($scope, SubmissionService, DropdownService, $location, $cookies) {
+	$scope.entry_type='new';
 	$scope.first_name;
 	$scope.last_name;
 	$scope.city;
-	$scope.state = 'AL';
+	$scope.state;
 	$scope.zipcode;
 	$scope.states = DropdownService.getStateList();
+	$scope.relationships = DropdownService.getRelationshipList();
 	$scope.email_address;
 	$scope.phone_number;
 	$scope.preferred_contact_method='email';
-
-	
+	$scope.relationship;
 	
 	$scope.nextStep = function(isValid) {
 			console.log('Validating form. Valid? '+isValid)
@@ -32,6 +33,7 @@ myApp.controller('contributorController', ['$scope', 'SubmissionService', 'Dropd
 		$scope.email_address = c.email_address;
 		$scope.phone_number = c.phone_number;
 		$scope.preferred_contact_method = c.preferred_contact_method;
+		$scope.relationship = c.relationship;
 	}
 
 

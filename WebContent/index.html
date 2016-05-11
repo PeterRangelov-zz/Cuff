@@ -8,13 +8,7 @@
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>
 	 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.min.js"></script>
 	 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-cookies.js"></script>
-	 
-	
-	<!-- <script type='text/javascript' src='//cdn.jsdelivr.net/livejs/4/live.js'></script> -->
-	<!--  <script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/angularjs-slider/2.10.4/rzslider.min.js'></script>
-	<script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/angular-inview/1.5.7/angular-inview.min.js'></script>
-	 -->
-	 
+	 	 
 	<script type='text/javascript' src='lib/underscore-1.8.3.min.js'></script>
 	<script type='text/javascript' src="//cdnjs.cloudflare.com/ajax/libs/angular-input-masks/2.2.0/angular-input-masks-standalone.min.js"></script>
 
@@ -69,6 +63,10 @@
 .breadcrumb > li + li:before {
     content: "\00BB";
     color: #aaa;
+}
+.form-group.required .control-label:after {
+  content:"*";
+  color:red;
 }
 </style>
 </html>

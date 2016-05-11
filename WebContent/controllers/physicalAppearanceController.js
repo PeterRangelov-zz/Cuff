@@ -5,11 +5,12 @@ myApp.controller('physicalAppearanceController', ['$scope', 'SubmissionService',
 		$scope.eye_colors = DropdownService.getEyeColorList();
 		$scope.hair_colors = DropdownService.getHairColorList();
 		$scope.heights = _.range(40, 80);
-		$scope.weights = _.range(80, 400)
+		$scope.weights = _.range(80, 400);
+		
 		$scope.race;
 		$scope.nationality;
-		$scope.height = '70';
-		$scope.weight = '180';
+		$scope.height;
+		$scope.weight;
 		$scope.hair_color;
 		$scope.eye_color;
 		$scope.physical_characteristics;

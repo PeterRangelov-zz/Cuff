@@ -17,6 +17,7 @@ public class Contributor {
 	private String city;
 	private String state;
 	private String zipcode;
+	private String relationship;
 	
 	
 
