@@ -50,20 +50,20 @@ myApp.controller('warrantsController', ['$scope', 'SubmissionService', 'Dropdown
 	}
 
 	if ($location.host()=='localhost') {
-//		$scope.warrants.push({
-//			municipality: 'municipality1',
-//			charge: 'charge',
-//			warrant_number: '12345',
-//			month: '5',
-//			year: '2015'
-//		},
-//		{
-//			municipality: 'municipality2',
-//			charge: 'charge',
-//			warrant_number: '54321',
-//			month: '1',
-//			year: '2012'
-//		})
+		$scope.warrants.push({
+			municipality: 'municipality1',
+			charge: 'charge',
+			warrant_number: '12345',
+			month: '5',
+			year: '2015'
+		},
+		{
+			municipality: 'municipality2',
+			charge: 'charge',
+			warrant_number: '54321',
+			month: '1',
+			year: '2012'
+		})
 	}
 
 		

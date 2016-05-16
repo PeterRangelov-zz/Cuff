@@ -7,6 +7,7 @@ import com.sendgrid.SendGrid.Response;
 import com.sendgrid.SendGridException;
 
 import dto.Contributor;
+import dto.CriminalHistory;
 import dto.Judgment;
 import dto.PhysicalAppearance;
 import dto.Subject;
@@ -40,13 +41,12 @@ public class Mailer {
 			
 	}
 	
-	public void emailSubmission (Contributor c, Subject s, PhysicalAppearance pa, List<Warrant> warrants, List<Judgment> judgments) throws InterruptedException {
+	public void emailSubmission (Contributor c, Subject s, PhysicalAppearance pa, List<Warrant> warrants, List<Judgment> judgments, List<CriminalHistory> criminalHistory) throws InterruptedException {
 		SendGrid sendgrid = new SendGrid(SENDGRID_API_KEY);
 
 	    Email email = new Email();
 	    email.addTo(SUBMISSION_RECEPIENT);
 	    email.setFrom(SUBMISSION_SENDER);
-	    email.setSubject("CUFF Notification: New online submission");
 	    
 	    // Add border
 	    StringBuffer warrantsTable = new StringBuffer("<table><tr><td>Municipality</td><td>Charge</td><td>Warrant number</td><td>Issued</td></tr>");
@@ -75,6 +75,17 @@ public class Mailer {
 	    
 	    System.out.println(warrantsTable);
 	    
+	    StringBuffer criminalHistoryTable = new StringBuffer("<table><tr><td>Municipality</td><td>Charge</td><td>Issued</td></tr>");
+    	for (CriminalHistory ch : criminalHistory) {
+    		judgmentsTable
+	    	.append("<tr>")
+	    		.append("<td>"+ch.getMunicipality()+"</td>")
+	    		.append("<td>"+ch.getCharge()+"</td>")
+	    		.append("<td>"+ch.getMonth()+"/"+ch.getYear()+"</td>")
+	    		.append("</tr>");
+	    }
+    	judgmentsTable.append("</table>");
+	    
 	    // SET TEMPLATE
 	    email.setTemplateId(System.getenv("SENDGRID_TEMPLATE_ID"));
 	    email.getSMTPAPI()
@@ -87,6 +98,12 @@ public class Mailer {
 	    	.addSubstitution(":contributor_city", c.getCity())
 	    	.addSubstitution(":contributor_state", c.getState())
 	    	.addSubstitution(":contributor_zipcode", c.getZipcode())
+	    	.addSubstitution(":contributor_contact_name", c.getCity())
+	    	.addSubstitution(":contributor_contact_organization", c.getContactOrganization())
+	    	.addSubstitution(":contributor_contact_city", c.getContactCity())
+	    	.addSubstitution(":contributor_contact_state", c.getContactState())
+	    	.addSubstitution(":contributor_contact_phone_number", c.getContactPhoneNumber())
+	    	.addSubstitution(":contributor_contact_email_address", c.getContactEmailAddress())
 	    	.addSubstitution(":first_name", s.getFirstName())
 	    	.addSubstitution(":middle_name", s.getMiddleName())
 	    	.addSubstitution(":last_name", s.getLastName())
@@ -104,6 +121,7 @@ public class Mailer {
 	    	.addSubstitution(":physical_characteristics", pa.getPhysicalCharacteristics())
 	    	.addSubstitution(":warrants_table", warrantsTable.toString())
 	    	.addSubstitution(":judgments_table", judgmentsTable.toString())
+	    	.addSubstitution(":criminal_history_table", judgmentsTable.toString())
 	    	;
 	    Thread.sleep(1000);
 	    	

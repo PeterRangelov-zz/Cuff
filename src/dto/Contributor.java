@@ -19,6 +19,13 @@ public class Contributor {
 	private String zipcode;
 	private String relationship;
 	
+	private String contactName;
+	private String contactOrganization;
+	private String contactCity;
+	private String contactState;
+	private String contactPhoneNumber;
+	private String contactEmailAddress;
+	
 	
 
 }

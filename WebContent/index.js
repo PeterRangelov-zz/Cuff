@@ -40,6 +40,9 @@ myApp.config(['$routeProvider', function($routeProvider) {
 			templateUrl: 'partials/confirmation.html'
 //			controller: 'submitController'
 		})
+		.when('/terms', {
+			templateUrl: 'partials/terms_and_conditions.html'
+		})
 
 
 }]);

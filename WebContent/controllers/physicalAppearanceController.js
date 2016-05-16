@@ -46,12 +46,12 @@ myApp.controller('physicalAppearanceController', ['$scope', 'SubmissionService',
 		}
 		
 		if ($location.host()=='localhost') {
-//			$scope.race = 'Caucasian';
-//			$scope.nationality = 'American';
-//			$scope.hair_color = 'Brown';
-//			$scope.eye_color = 'Brown';
-//			$scope.preferred_contact_method = 'email';
-//			$scope.physical_characteristics='scar'
+			$scope.race = 'Caucasian';
+			$scope.nationality = 'American';
+			$scope.hair_color = 'Brown';
+			$scope.eye_color = 'Brown';
+			$scope.preferred_contact_method = 'email';
+			$scope.physical_characteristics='scar'
 		}
 
 		

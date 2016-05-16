@@ -13,94 +13,190 @@
 	     </ul>
 	</div>
 	<h1 class='text-success'>Contributor Information</h1>
-	<p>The data in this section is available only to CUFF and is not provided to anyone without your written consent.</p>
 	<hr>
 	<form name='form' novalidate>
-		<div class='form-group'>
-			<label><input type='radio' name='entry_type' ng-model='entry_type' value='new' checked='checked'> New Entry</label>
-			<label><input type='radio' name='entry_type' ng-model='entry_type' value='change_existing'> Change Existing Entry</label>
-		</div>
-		
-		<div class='row'>
-			<div class='col-xs-12 col-sm-4'>
-				<div class='form-group'>
-					<label for='first_name'>First name</label>
-					<span ng-show='(form.first_name.$touched && form.first_name.$invalid) || (form.$submitted && form.first_name.$invalid)' class='text-danger'>Required</span>
-					<input type='text' name='first_name' ng-model='first_name' class='form-control input-sm' value='{{$scope.first_name}}' required maxlength='20'>
+		<div class='panel panel-default'>
+			<div class='panel-heading'>
+				<h4>Section #1</h4>
+				<p>The data in this section is available only to CUFF and is not provided to anyone without your written consent.</p>
+			</div>
+		  	<div class='panel-body'>
+		    				<div class='form-group'>
+				<label><input type='radio' name='entry_type' ng-model='entry_type' value='new' checked='checked'> New Entry</label>
+				<label><input type='radio' name='entry_type' ng-model='entry_type' value='change_existing'> Change Existing Entry</label>
+			</div>
+			
+			<div class='row'>
+				<div class='col-xs-12 col-sm-4'>
+					<div class='form-group'>
+						<label for='first_name'>First name</label>
+						<span ng-show='(form.first_name.$touched && form.first_name.$invalid) || (form.$submitted && form.first_name.$invalid)' class='text-danger'>Required</span>
+						<input type='text' name='first_name' ng-model='first_name' class='form-control input-sm' value='{{$scope.first_name}}' required maxlength='20'>
+					</div>
+				</div>
+				<div class='col-xs-12 col-sm-4'>
+					<div class='form-group'>
+						<label for='last_name'>Last name</label>
+						<span ng-show='(form.last_name.$touched && form.last_name.$invalid) || (form.$submitted && form.last_name.$invalid)' class='text-danger'>Required</span>
+						<input type='text' name='last_name' ng-model='last_name' class='form-control input-sm' required maxlength='30'>
+					</div>
+				</div>
+	
+				<div class='col-xs-12 col-sm-4'>
+					<div class='form-group'>
+						<label for='relationship'>Relationship to subject</label>
+						<span ng-show='(form.relationship.$touched && form.relationship.$invalid) || (form.$submitted && form.relationship.$invalid)' class='text-danger'>Required</span>
+						<select name='relationship' ng-model='relationship' class='form-control input-sm' required>
+							<option ng-repeat='r in relationships.content' value='r'>{{r}}</option>
+						</select>
+					</div>
+				</div>
+	
+			</div>
+	
+			<div class='row'>
+				<div class='col-xs-12 col-sm-6'>
+					<div class='form-group'>
+						<label for='city'>City</label>
+						<span ng-show='(form.city.$touched && form.city.$invalid) || (form.$submitted && form.city.$invalid)' class='text-danger'>Required</span>
+						<input type='text' name='city' ng-model='city' class='form-control input-sm' required maxlength='20'>
+					</div>
+				</div>	
+				<div class='col-xs-12 col-sm-2'>		
+					<div class='form-group'>
+						<label for='state'>State</label>
+						<span ng-show='(form.state.$touched && form.state.$invalid) || (form.$submitted && form.state.$invalid)' class='text-danger'>Required</span>
+						<select name='state' ng-model='state' class='form-control input-sm' required>
+							<option ng-repeat='state in states.content' value='{{state}}'>{{state}}</option>
+						</select>
+					</div>
+				</div>
+				<div class='col-xs-12 col-sm-4'>
+					<div class='form-group'>
+						<label for='zipcode'>Zipcode</label>
+						<span ng-show='(form.zipcode.$touched && form.zipcode.$invalid) || (form.$submitted && form.zipcode.$invalid)' class='text-danger'>Required</span>
+						<input type='text' name='zipcode' ng-model='zipcode' class='form-control input-sm' required maxlength='5'>
+					</div>
 				</div>
 			</div>
-			<div class='col-xs-12 col-sm-4'>
-				<div class='form-group'>
-					<label for='last_name'>Last name</label>
-					<span ng-show='(form.last_name.$touched && form.last_name.$invalid) || (form.$submitted && form.last_name.$invalid)' class='text-danger'>Required</span>
-					<input type='text' name='last_name' ng-model='last_name' class='form-control input-sm' required maxlength='30'>
+			
+			<div class='row'>
+				<div class='col-xs-12 col-sm-4'>
+					<div class='form-group'>
+						<label for='phone_number'>Phone number</label>
+						<span ng-show='(form.phone_number.$touched && form.phone_number.$invalid) || (form.$submitted && form.phone_number.$invalid)' class='text-danger'>Required</span>
+						<input type='text' name='phone_number' ng-model='phone_number' class='form-control input-sm' required maxlength='20'>
+					</div>
+				</div>
+				<div class='col-xs-12 col-sm-4'>
+					<div class='form-group'>
+						<label for='email_address'>Email address</label>
+						<span ng-show='(form.email_address.$touched && form.email_address.$invalid) || (form.$submitted && form.email_address.$invalid)' class='text-danger'>Please enter a valid email address</span>
+						<input type='email' name='email_address' ng-model='email_address' class='form-control input-sm' required maxlength='40'>
+					</div>
+				</div>
+				<div class='col-xs-12 col-sm-4'>
+					<div class='form-group'>
+						<label for='preferred_contact_method'>Preferred contact method</label>
+						<select name='preferred_contact_method' class='form-control input-sm' ng-model='preferred_contact_method'>
+							<option value='phone'>Phone</option>
+							<option value='email'>Email</option>
+						</select>
+					</div>
 				</div>
 			</div>
-
-			<div class='col-xs-12 col-sm-4'>
-				<div class='form-group'>
-					<label for='relationship'>Relationship to subject</label>
-					<span ng-show='(form.relationship.$touched && form.relationship.$invalid) || (form.$submitted && form.relationship.$invalid)' class='text-danger'>Required</span>
-					<select name='relationship' ng-model='relationship' class='form-control input-sm' required>
-						<option ng-repeat='r in relationships.content' value='r'>{{r}}</option>
-					</select>
-				</div>
-			</div>
-
-		</div>
-
-		<div class='row'>
-			<div class='col-xs-12 col-sm-6'>
-				<div class='form-group'>
-					<label for='city'>City</label>
-					<span ng-show='(form.city.$touched && form.city.$invalid) || (form.$submitted && form.city.$invalid)' class='text-danger'>Required</span>
-					<input type='text' name='city' ng-model='city' class='form-control input-sm' required maxlength='20'>
-				</div>
-			</div>	
-			<div class='col-xs-12 col-sm-2'>		
-				<div class='form-group'>
-					<label for='state'>State</label>
-					<span ng-show='(form.state.$touched && form.state.$invalid) || (form.$submitted && form.state.$invalid)' class='text-danger'>Required</span>
-					<select name='state' ng-model='state' class='form-control input-sm' required>
-						<option ng-repeat='state in states.content' value='{{state}}'>{{state}}</option>
-					</select>
-				</div>
-			</div>
-			<div class='col-xs-12 col-sm-4'>
-				<div class='form-group'>
-					<label for='zipcode'>Zipcode</label>
-					<span ng-show='(form.zipcode.$touched && form.zipcode.$invalid) || (form.$submitted && form.zipcode.$invalid)' class='text-danger'>Required</span>
-					<input type='text' name='zipcode' ng-model='zipcode' class='form-control input-sm' required maxlength='5'>
-				</div>
-			</div>
-		</div>
-		
-		<div class='row'>
-			<div class='col-xs-12 col-sm-4'>
-				<div class='form-group'>
-					<label for='phone_number'>Phone number</label>
-					<span ng-show='(form.phone_number.$touched && form.phone_number.$invalid) || (form.$submitted && form.phone_number.$invalid)' class='text-danger'>Required</span>
-					<input type='text' name='phone_number' ng-model='phone_number' class='form-control input-sm' required maxlength='20'>
-				</div>
-			</div>
-			<div class='col-xs-12 col-sm-4'>
-				<div class='form-group'>
-					<label for='email_address'>Email address</label>
-					<span ng-show='(form.email_address.$touched && form.email_address.$invalid) || (form.$submitted && form.email_address.$invalid)' class='text-danger'>Please enter a valid email address</span>
-					<input type='email' name='email_address' ng-model='email_address' class='form-control input-sm' required maxlength='40'>
-				</div>
-			</div>
-			<div class='col-xs-12 col-sm-4'>
-				<div class='form-group'>
-					<label for='preferred_contact_method'>Preferred contact method</label>
-					<select name='preferred_contact_method' class='form-control input-sm' ng-model='preferred_contact_method'>
-						<option value='phone'>Phone</option>
-						<option value='email'>Email</option>
-					</select>
-				</div>
-			</div>
+		    	
+		  	</div>
 		</div>
 			
+		<div class='panel panel-default'>
+			<div class='panel-heading'>
+				<h4>Section #2</h4>
+				<p>Section 2 is the contact information for reporting a located fugitive. If the subject has a warrant, contact can be through CUFF or the agency holding the warrant. Enter the agency information below. You will be contacted at the phone or email provided in Section 1 if the fugitive is caught. If you are entering information on a criminal history or civil judgment and want to be contacted, CUFF will contact you at the email or phone provided in Section 1.</p>
+			</div>
+		  	<div class='panel-body'>
+				<div class='row'>
+					<div class='col-xs-12 col-sm-6'>
+						<div class='form-group'>
+							<label for='contact_name'>Contact name</label>
+							<span ng-show='(form.contact_name.$touched && form.contact_name.$invalid) || (form.$submitted && form.contact_name.$invalid)' class='text-danger'>Required</span>
+							<input type='text' name='contact_name' ng-model='contact_name' class='form-control input-sm' value='{{$scope.contact_name}}' required maxlength='20'>
+						</div>
+					</div>
+					<div class='col-xs-12 col-sm-6'>
+						<div class='form-group'>
+							<label for='contact_organization'>Organization</label>
+							<span ng-show='(form.contact_organization.$touched && form.contact_organization.$invalid) || (form.$submitted && form.contact_organization.$invalid)' class='text-danger'>Required</span>
+							<input type='text' name='contact_organization' ng-model='contact_organization' class='form-control input-sm' value='{{$scope.contact_organization}}' required maxlength='20'>
+						</div>
+					</div>
+					<div class='col-xs-12 col-sm-4'>
+						<div class='form-group'>
+							<label for='contact_city'>City</label>
+							<span ng-show='(form.contact_city.$touched && form.contact_city.$invalid) || (form.$submitted && form.contact_city.$invalid)' class='text-danger'>Required</span>
+							<input type='text' name='contact_city' ng-model='contact_city' class='form-control input-sm' required maxlength='30'>
+						</div>
+					</div>
+					<div class='col-xs-12 col-sm-2'>		
+						<div class='form-group'>
+							<label for='contact_state'>State</label>
+							<span ng-show='(form.contact_state.$touched && form.contact_state.$invalid) || (form.$submitted && form.contact_state.$invalid)' class='text-danger'>Required</span>
+							<select name='contact_state' ng-model='contact_state' class='form-control input-sm' required>
+								<option ng-repeat='s in states.content' value='{{s}}'>{{s}}</option>
+							</select>
+						</div>
+					</div>
+				</div>
+		
+				
+				<div class='row'>
+					<div class='col-xs-12 col-sm-4'>
+						<div class='form-group'>
+							<label for='contact_phone_number'>Phone number</label>
+							<span ng-show='(form.contact_phone_number.$touched && form.contact_phone_number.$invalid) || (form.$submitted && form.contact_phone_number.$invalid)' class='text-danger'>Required</span>
+							<input type='text' name='contact_phone_number' ng-model='contact_phone_number' class='form-control input-sm' required maxlength='20'>
+						</div>
+					</div>
+					<div class='col-xs-12 col-sm-4'>
+						<div class='form-group'>
+							<label for='contact_email_address'>Email address</label>
+							<span ng-show='(form.contact_email_address.$touched && form.contact_email_address.$invalid) || (form.$submitted && form.contact_email_address.$invalid)' class='text-danger'>Please enter a valid email address</span>
+							<input type='email' name='contact_email_address' ng-model='contact_email_address' class='form-control input-sm' required maxlength='40'>
+						</div>
+					</div>
+				</div>
+		    	
+		  	</div>
+		</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			
 		<div class="pull-right">
 			<button type='submit' class='btn-sm btn-primary' ng-click='nextStep(form.$valid)' >Continue</button>

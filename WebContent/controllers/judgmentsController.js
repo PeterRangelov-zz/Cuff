@@ -49,20 +49,20 @@ myApp.controller('judgmentsController', ['$scope', 'SubmissionService', 'Dropdow
 		}
 
 		if ($location.host()=='localhost') {
-//			$scope.judgments.push({
-//				municipality: 'municipality 1',
-//				amount: '1500',
-//				judgment_number: '12345',
-//				month: 5,
-//				year: 2015
-//			},
-//			{
-//				municipality: 'municipality 2',
-//				amount: '2500',
-//				judgment_number: '54321',
-//				month: 1,
-//				year: 2012
-//			})
+			$scope.judgments.push({
+				municipality: 'municipality 1',
+				amount: '1500',
+				judgment_number: '12345',
+				month: 5,
+				year: 2015
+			},
+			{
+				municipality: 'municipality 2',
+				amount: '2500',
+				judgment_number: '54321',
+				month: 1,
+				year: 2012
+			})
 		}
 
 }])

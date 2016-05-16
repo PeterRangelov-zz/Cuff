@@ -11,6 +11,12 @@ myApp.controller('contributorController', ['$scope', 'SubmissionService', 'Dropd
 	$scope.phone_number;
 	$scope.preferred_contact_method='email';
 	$scope.relationship;
+	$scope.contact_name;
+	$scope.contact_organization;
+	$scope.contact_city;
+	$scope.contact_state;
+	$scope.contact_phone_number;
+	$scope.contact_email_address;
 	
 	$scope.nextStep = function(isValid) {
 			console.log('Validating form. Valid? '+isValid)
@@ -34,18 +40,24 @@ myApp.controller('contributorController', ['$scope', 'SubmissionService', 'Dropd
 		$scope.phone_number = c.phone_number;
 		$scope.preferred_contact_method = c.preferred_contact_method;
 		$scope.relationship = c.relationship;
+		$scope.contact_name = c.contact_name;
+		$scope.contact_organization = c.contact_organization;
+		$scope.contact_city = c.contact_city;
+		$scope.contact_state = c.contact_state;
+		$scope.contact_phone_number = c.contact_phone_number;
+		$scope.contact_email_address = c.contact_email_address;
 	}
 
 
 	if ($location.host()=='localhost') {
-//		$scope.first_name = 'John';
-//		$scope.last_name = 'Smith';
-//		$scope.city = 'City';
-//		$scope.state = 'AL';
-//		$scope.zipcode = 51423;
-//		$scope.states = DropdownService.getStateList();
-//		$scope.email_address = 'me@xyz.com';
-//		$scope.phone_number = '670-394-1231';
-//		$scope.preferred_contact_method = 'email';
+		$scope.first_name = 'John';
+		$scope.last_name = 'Smith';
+		$scope.city = 'City';
+		$scope.state = 'AL';
+		$scope.zipcode = 51423;
+		$scope.states = DropdownService.getStateList();
+		$scope.email_address = 'me@xyz.com';
+		$scope.phone_number = '670-394-1231';
+		$scope.preferred_contact_method = 'email';
 	}
 }]);

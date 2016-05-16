@@ -21,14 +21,14 @@ myApp.controller('submitController', ['$scope', 'SubmissionService', 'DropdownSe
 	}
 
 	if ($location.host()=='localhost') {
-//		$scope.first_name = 'John';
-//		$scope.middle_name = 'Middle';
-//		$scope.last_name = 'Smith';
-//		$scope.aliases = 'Aliases';
-//		$scope.drivers_license = 'R-123-456-7890';
-//		$scope.ssn = '123-45-6789';
-//		$scope.dob = '1/1/1980';
-//		$scope.background_info='Background info'
+		$scope.first_name = 'John';
+		$scope.middle_name = 'Middle';
+		$scope.last_name = 'Smith';
+		$scope.aliases = 'Aliases';
+		$scope.drivers_license = 'R-123-456-7890';
+		$scope.ssn = '123-45-6789';
+		$scope.dob = '1/1/1980';
+		$scope.background_info='Background info'
 	}
 
 	$scope.submit = function() {
@@ -56,7 +56,8 @@ myApp.controller('submitController', ['$scope', 'SubmissionService', 'DropdownSe
 					  subject: JSON.stringify(subject),
 					  physical_appearance: JSON.stringify(physicalAppearance),
 					  warrants: JSON.stringify(warrants),
-					  judgments: JSON.stringify(judgments)
+					  judgments: JSON.stringify(judgments),
+					  criminal_history: JSON.stringify(criminalHistory)
 				  })
 				})
 				.then(

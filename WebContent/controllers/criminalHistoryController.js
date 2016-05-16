@@ -50,18 +50,18 @@ myApp.controller('criminalHistoryController', ['$scope', 'SubmissionService', '$
 
 
 		if ($location.host()=='localhost') {
-//			$scope.entries.push({
-//				municipality: 'municipality1',
-//				charge: 'charge',
-//				month: 5,
-//				year: 2015
-//			},
-//			{
-//				municipality: 'municipality2',
-//				charge: 'charge',
-//				month: 1,
-//				year: 2012
-//			})
+			$scope.entries.push({
+				municipality: 'municipality1',
+				charge: 'charge',
+				month: 5,
+				year: 2015
+			},
+			{
+				municipality: 'municipality2',
+				charge: 'charge',
+				month: 1,
+				year: 2012
+			})
 		}
 
 		
