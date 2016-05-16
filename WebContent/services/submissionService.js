@@ -37,7 +37,13 @@ myApp.factory('SubmissionService', function ($cookies, $cookieStore) {
         		relationship: newVal.relationship,
         		city: newVal.city,
         		state: newVal.state,
-        		zipcode: newVal.zipcode
+        		zipcode: newVal.zipcode,
+        		contact_name: newVal.contact_name,
+        		contact_organization: newVal.contact_organization,
+        		contact_city: newVal.contact_city,
+        		contact_state: newVal.contact_state,
+        		contact_phone_number: newVal.contact_phone_number,
+        		contact_email_address: newVal.contact_email_address
         	};
 //        	$cookieStore.put('contributor', c)
 //        	console.log(c)
