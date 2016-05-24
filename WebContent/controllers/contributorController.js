@@ -1,5 +1,5 @@
 myApp.controller('contributorController', ['$scope', 'SubmissionService', 'DropdownService', '$location', '$cookies', function($scope, SubmissionService, DropdownService, $location, $cookies) {
-	$scope.entry_type='new';
+	$scope.entry_type='New';
 	$scope.first_name;
 	$scope.last_name;
 	$scope.city;
@@ -30,7 +30,7 @@ myApp.controller('contributorController', ['$scope', 'SubmissionService', 'Dropd
 		console.log('SubmissionService contains Contribuor information: ')
 		var c = SubmissionService.getContributor()
 		console.log(c)
-		
+		$scope.entry_type = c.entry_type
 		$scope.first_name = c.first_name
 		$scope.last_name = c.last_name
 		$scope.city = c.city;
@@ -55,9 +55,16 @@ myApp.controller('contributorController', ['$scope', 'SubmissionService', 'Dropd
 		$scope.city = 'City';
 		$scope.state = 'AL';
 		$scope.zipcode = 51423;
-		$scope.states = DropdownService.getStateList();
 		$scope.email_address = 'me@xyz.com';
 		$scope.phone_number = '670-394-1231';
 		$scope.preferred_contact_method = 'email';
+		$scope.relationship = 'Attorney';
+		
+		$scope.contact_name = 'Contact name';
+		$scope.contact_organization = 'Contact organization';
+		$scope.contact_city = 'Contact city';
+		$scope.contact_state = 'AK';
+		$scope.contact_phone_number = '123 456 7890';
+		$scope.contact_email_address = 'abc@xyz.com';
 	}
 }]);

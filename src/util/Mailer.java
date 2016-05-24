@@ -89,6 +89,7 @@ public class Mailer {
 	    // SET TEMPLATE
 	    email.setTemplateId(System.getenv("SENDGRID_TEMPLATE_ID"));
 	    email.getSMTPAPI()
+//	    	.addSubstitution(":submission_type", c.getEntryType())
 	    	.addSubstitution(":contributor_first_name", c.getFirstName())
 	    	.addSubstitution(":contributor_last_name", c.getLastName())
 	    	.addSubstitution(":contributor_email_address", c.getEmailAddress())
@@ -121,10 +122,11 @@ public class Mailer {
 	    	.addSubstitution(":physical_characteristics", pa.getPhysicalCharacteristics())
 	    	.addSubstitution(":warrants_table", warrantsTable.toString())
 	    	.addSubstitution(":judgments_table", judgmentsTable.toString())
-	    	.addSubstitution(":criminal_history_table", judgmentsTable.toString())
+	    	.addSubstitution(":criminal_history_table", criminalHistoryTable.toString())
 	    	;
 	    Thread.sleep(1000);
-	    	
+	    
+	    email.setSubject(c.getEntryType()+" online submission from " + c.getFirstName());
 	    email.setHtml("Thank you for your submission --CUFF Team");
 	    
 	    Response response;

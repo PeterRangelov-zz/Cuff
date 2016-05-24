@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 
 @Data @XmlRootElement @AllArgsConstructor @NoArgsConstructor
 public class Contributor {
+	private String entryType;
+	
 	private String firstName;
 	private String lastName;
 	private String emailAddress;

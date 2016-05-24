@@ -29,6 +29,7 @@ myApp.factory('SubmissionService', function ($cookies, $cookieStore) {
 //        		zipcode: newVal.zipcode
 //        	};
         	contributor = {
+        		entry_type: newVal.entry_type,
         		first_name:  newVal.first_name,
         		last_name: newVal.last_name,
         		email_address: newVal.email_address,

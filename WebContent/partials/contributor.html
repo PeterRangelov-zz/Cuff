@@ -22,8 +22,8 @@
 			</div>
 		  	<div class='panel-body'>
 		    				<div class='form-group'>
-				<label><input type='radio' name='entry_type' ng-model='entry_type' value='new' checked='checked'> New Entry</label>
-				<label><input type='radio' name='entry_type' ng-model='entry_type' value='change_existing'> Change Existing Entry</label>
+				<label><input type='radio' name='entry_type' ng-model='entry_type' value='New' checked='checked'> New Entry</label>
+				<label><input type='radio' name='entry_type' ng-model='entry_type' value='Change to existing'> Change Existing Entry</label>
 			</div>
 			
 			<div class='row'>
@@ -47,7 +47,7 @@
 						<label for='relationship'>Relationship to subject</label>
 						<span ng-show='(form.relationship.$touched && form.relationship.$invalid) || (form.$submitted && form.relationship.$invalid)' class='text-danger'>Required</span>
 						<select name='relationship' ng-model='relationship' class='form-control input-sm' required>
-							<option ng-repeat='r in relationships.content' value='r'>{{r}}</option>
+							<option ng-repeat='r in relationships.content' value='{{r}}'>{{r}}</option>
 						</select>
 					</div>
 				</div>
