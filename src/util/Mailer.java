@@ -89,7 +89,6 @@ public class Mailer {
 	    // SET TEMPLATE
 	    email.setTemplateId(System.getenv("SENDGRID_TEMPLATE_ID"));
 	    email.getSMTPAPI()
-//	    	.addSubstitution(":submission_type", c.getEntryType())
 	    	.addSubstitution(":contributor_first_name", c.getFirstName())
 	    	.addSubstitution(":contributor_last_name", c.getLastName())
 	    	.addSubstitution(":contributor_email_address", c.getEmailAddress())
@@ -109,6 +108,7 @@ public class Mailer {
 	    	.addSubstitution(":middle_name", s.getMiddleName())
 	    	.addSubstitution(":last_name", s.getLastName())
 	    	.addSubstitution(":aliases", s.getAliases())
+	    	.addSubstitution(":gender", s.getGender())
 	    	.addSubstitution(":drivers_license", s.getDriversLicense())
 	    	.addSubstitution(":ssn", s.getSsn())
 	    	.addSubstitution(":dob", s.getDob())

@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 
 @Data @XmlRootElement @AllArgsConstructor @NoArgsConstructor
 public class Subject {
+	private String gender;
 	private String firstName;
 	private String middleName;
 	private String lastName;
