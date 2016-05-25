@@ -12,53 +12,144 @@
 	    </ul>
 	</div>
 	<h1 class='text-success'>Review & Submit</h1>
+	<p>Please review the information for accuracy. You can edit the information by going to that particular section using the links above, or the back button below.</p>
 	<hr>
 
 	<form name='form' novalidate>
-		<div class='panel panel-default'>
+		<div class='panel panel-success'>
 			<div class='panel-heading'>
 				<h4>Your information</h4>
 			</div>
 		  	<div class='panel-body'>
-		  		<h3>Section 1</h3>
-				<label>Entry type<input ng-model='entry_type' class='form-control input-sm' readonly></label>
-				<label>First name<input ng-model='first_name' class='form-control input-sm' readonly></label>
-				<label>Last name<input ng-model='last_name' class='form-control input-sm' readonly></label>
-				<label>Relationship to subject<input ng-model='relationship' class='form-control input-sm' readonly></label>
-				<label>City<input ng-model='city' class='form-control input-sm' readonly></label>
-				<label>State<input ng-model='state' class='form-control input-sm' readonly></label>
-				<label>Zipcode<input ng-model='zipcode' class='form-control input-sm' readonly></label>
-				<label>Phone number<input ng-model='phone_number' class='form-control input-sm' readonly></label>
-				<label>Email address<input ng-model='email_address' class='form-control input-sm' readonly></label>
-				<label>Preferred contact method<input ng-model='preferred_contact_method' class='form-control input-sm' readonly></label>
+		  		<h4>Section 1</h4>
+				<label>Entry type<input value='{{contributor.entry_type}}' class='form-control input-sm' readonly></label>
+				<label>First name<input value='{{contributor.first_name}}' class='form-control input-sm' readonly></label>
+				<label>Last name<input value='{{contributor.last_name}}' class='form-control input-sm' readonly></label>
+				<label>Relationship to subject<input value='{{contributor.relationship}}' class='form-control input-sm' readonly></label>
+				<label>City<input value='{{contributor.city}}' class='form-control input-sm' readonly></label>
+				<label>State<input value='{{contributor.state}}' class='form-control input-sm' readonly></label>
+				<label>Zipcode<input value='{{contributor.zipcode}}' class='form-control input-sm' readonly></label>
+				<label>Phone number<input value='{{contributor.phone_number}}' class='form-control input-sm' readonly></label>
+				<label>Email address<input value='{{contributor.email_address}}' class='form-control input-sm' readonly></label>
+				<label>Preferred contact method<input value='{{contributor.preferred_contact_method}}' class='form-control input-sm' readonly></label>
 			</div>
 			<div class='panel-body'>
-				<h3>Section 2</h3>
-				<label>Contact name<input ng-model='' class='form-control input-sm' readonly></label>
-				<label>Organization<input ng-model='' class='form-control input-sm' readonly></label>
-				<label>City<input ng-model='' class='form-control input-sm' readonly></label>
-				<label>State<input ng-model='' class='form-control input-sm' readonly></label>
-				<label>Phone number<input ng-model='' class='form-control input-sm' readonly></label>
-				<label>Email address<input ng-model='' class='form-control input-sm' readonly></label>
+				<h4>Section 2</h4>
+				<label>Contact name<input value='{{contributor.contact_name}}' class='form-control input-sm' readonly></label>
+				<label>Organization<input value='{{contributor.contact_organization}}' class='form-control input-sm' readonly></label>
+				<label>City<input value='{{contributor.contact_city}}' class='form-control input-sm' readonly></label>
+				<label>State<input value='{{contributor.contact_state}}' class='form-control input-sm' readonly></label>
+				<label>Phone number<input value='{{contributor.contact_phone_number}}' class='form-control input-sm' readonly></label>
+				<label>Email address<input value='{{contributor.contact_email_address}}' class='form-control input-sm' readonly></label>
 			</div>
 		</div>
 		
-		<div class='panel panel-default'>
+		<div class='panel panel-success'>
 			<div class='panel-heading'>
 				<h4>Subject Information</h4>
 			</div>
 		  	<div class='panel-body'>
-		  		<h3>Section 1</h3>
-				<label>Entry type<input ng-model='entry_type' class='form-control input-sm' readonly></label>
-				<label>First name<input ng-model='first_name' class='form-control input-sm' readonly></label>
-				<label>Last name<input ng-model='last_name' class='form-control input-sm' readonly></label>
-				<label>Relationship to subject<input ng-model='relationship' class='form-control input-sm' readonly></label>
-				<label>City<input ng-model='city' class='form-control input-sm' readonly></label>
-				<label>State<input ng-model='state' class='form-control input-sm' readonly></label>
-				<label>Zipcode<input ng-model='zipcode' class='form-control input-sm' readonly></label>
-				<label>Phone number<input ng-model='phone_number' class='form-control input-sm' readonly></label>
-				<label>Email address<input ng-model='email_address' class='form-control input-sm' readonly></label>
-				<label>Preferred contact method<input ng-model='preferred_contact_method' class='form-control input-sm' readonly></label>
+				<label>Gender<input value='{{subject.gender}}' class='form-control input-sm' readonly></label>
+				<label>First name<input value='{{subject.first_name}}' class='form-control input-sm' readonly></label>
+				<label>Middle name<input value='{{subject.middle_name}}' class='form-control input-sm' readonly></label>
+				<label>Last name<input value='{{subject.last_name}}' class='form-control input-sm' readonly></label>
+				<label>Aliases<input value='{{subject.aliases}}' class='form-control input-sm' readonly></label>
+				<label>Driver's license<input value='{{subject.drivers_license}}' class='form-control input-sm' readonly></label>
+				<label>Social security number<input value='{{subject.ssn}}' class='form-control input-sm' readonly></label>
+				<label>Date of birth<input value='{{subject.dob}}' class='form-control input-sm' readonly></label>
+				<label>Background information<input value='{{subject.background_info}}' class='form-control input-sm' readonly></label>
+			</div>
+		</div>
+		
+		<div class='panel panel-success'>
+			<div class='panel-heading'>
+				<h4>Physical Appearance</h4>
+			</div>
+		  	<div class='panel-body'>
+				<label>Race<input value='{{physicalAppearance.race}}' class='form-control input-sm' readonly></label>
+				<label>Nationality<input value='{{physicalAppearance.nationality}}' class='form-control input-sm' readonly></label>
+				<label>Height<input value='{{physicalAppearance.height}}' class='form-control input-sm' readonly></label>
+				<label>Weight<input value='{{physicalAppearance.weight}}' class='form-control input-sm' readonly></label>
+				<label>Hair color<input value='{{physicalAppearance.hair_color}}' class='form-control input-sm' readonly></label>
+				<label>Eye color<input value='{{physicalAppearance.eye_color}}' class='form-control input-sm' readonly></label>
+				<label>Other characteristics<input value='{{physicalAppearance.physical_characteristics}}' class='form-control input-sm' readonly></label>
+			</div>
+		</div>
+		
+		<div class='panel panel-success'>
+			<div class='panel-heading'>
+				<h4>Warrants</h4>
+			</div>
+		  	<div class='panel-body'>
+				<table class='table table-bordered'>
+					<thead>
+						<tr>
+							<th>Municipality</th>
+							<th>Warrant number</th>
+							<th>Charge</th>
+							<th>Month/year</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat='w in warrants'>
+							<td>{{w.municipality}}</td>
+							<td>{{w.warrant_number}}</td>
+							<td>{{w.charge}}</td>
+							<td>{{w.month}}/{{w.year}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		
+		<div class='panel panel-success'>
+			<div class='panel-heading'>
+				<h4>Judgments</h4>
+			</div>
+		  	<div class='panel-body'>
+				<table class='table table-bordered'>
+					<thead>
+						<tr>
+							<th>Municipality</th>
+							<th>Judgment number</th>
+							<th>Amount</th>
+							<th>Entered on</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat='j in judgments'>
+							<td>{{j.municipality}}</td>
+							<td>{{j.judgment_number}}</td>
+							<td>{{j.amount}}</td>
+							<td>{{j.month}}/{{j.year}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		
+		<div class='panel panel-success'>
+			<div class='panel-heading'>
+				<h4>Criminal history</h4>
+			</div>
+		  	<div class='panel-body'>
+		  		<label>NCIS number<input value='' class='form-control input-sm' readonly></label>
+				<table class='table table-bordered'>
+					<thead>
+						<tr>
+							<th>Municipality</th>
+							<th>Charge</th>
+							<th>Convicted on</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat='c in criminalHistory'>
+							<td>{{c.municipality}}</td>
+							<td>{{c.charge}}</td>
+							<td>{{c.month}}/{{c.year}}</td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
 		</div>
 		

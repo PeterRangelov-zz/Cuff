@@ -59,6 +59,7 @@ myApp.factory('SubmissionService', function ($cookies, $cookieStore) {
         },
         setSubject: function (newVal) {
 	    	subject = {
+	    		gender: newVal.gender,
         		first_name:  newVal.first_name,
         		middle_name:  newVal.middle_name,
         		last_name: newVal.last_name,
