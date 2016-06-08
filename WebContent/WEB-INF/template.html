@@ -1,8 +1,162 @@
+<html>
+<head>
+</head>
+<body>
+<div><b>Contributor Information</b></div>
+
+
+<table border="1" cellpadding="1" cellspacing="1" style="width:600px;">
+	<tbody>
+		<tr>
+			<td>Name</td>
+			<td>%s %s</td>
+		</tr>
+		<tr>
+			<td>Email address</td>
+			<td>%s</td>
+		</tr>
+		<tr>
+			<td>Phone number</td>
+			<td>%s</td>
+		</tr>
+		<tr>
+			<td>Preferred contact method</td>
+			<td>%s</td>
+		</tr>
+		<tr>
+			<td>Relationship to subject</td>
+			<td>%s</td>
+		</tr>
+		<tr>
+			<td>Address</td>
+			<td>%s, %s, %s</td>
+		</tr>
+	</tbody>
+</table>
+
+<br>
+
+
+<table border="1" cellpadding="1" cellspacing="1" style="width:500px;">
+	<caption>
+	<div style="text-align: left;"><b>Contact Information</b></div>
+	</caption>
+	<tbody>
+		<tr>
+			<td>Name</td>
+			<td>%s</td>
+		</tr>
+		<tr>
+			<td>Organization</td>
+			<td>%s</td>
+		</tr>
+		<tr>
+			<td>City</td>
+			<td>%s</td>
+		</tr>
+		<tr>
+			<td>State</td>
+			<td>%s</td>
+		</tr>
+		<tr>
+			<td>Phone</td>
+			<td>%s</td>
+		</tr>
+		<tr>
+			<td>Email</td>
+			<td>%s</td>
+		</tr>
+	</tbody>
+</table>
+
+<br>
+
 <div>
-    <div class="steps" ng-transclude></div>
-    <ul class="steps-indicator steps-{{getEnabledSteps().length}}" ng-if="!hideIndicators">
-      <li ng-class="{default: !step.completed && !step.selected, current: step.selected && !step.completed, done: step.completed && !step.selected, editing: step.selected && step.completed}" ng-repeat="step in getEnabledSteps()">
-        <a ng-click="goTo(step)">{{step.title || step.wzTitle}}</a>
-      </li>
-    </ul>
+<table border="1" cellpadding="1" cellspacing="1" style="width:600px;">
+	<caption>
+		<div style="text-align: left;">
+			<b>Subject Information</b>
+		</div>
+	</caption>
+	<tbody>
+		<tr>
+			<td>Name</td>
+			<td>%s %s %s</td>
+		</tr>
+		<tr>
+			<td>Aliases</td>
+			<td>%s</td>
+		</tr>
+		<tr>
+			<td>Drivers License</td>
+			<td>%s</td>
+		</tr>
+		<tr>
+			<td>SSN</td>
+			<td>%s</td>
+		</tr>
+		<tr>
+			<td>Dob</td>
+			<td>%s</td>
+		</tr>
+		<tr>
+			<td>Background information</td>
+			<td>%s</td>
+		</tr>
+		<tr>
+			<td>Race</td>
+			<td>%s</td>
+		</tr>
+		<tr>
+			<td>Nationality</td>
+			<td>%s</td>
+		</tr>
+		<tr>
+			<td>Height</td>
+			<td>%s</td>
+		</tr>
+		<tr>
+			<td>Weight</td>
+			<td>%s</td>
+		</tr>
+		<tr>
+			<td>Hair color</td>
+			<td>%s</td>
+		</tr>
+		<tr>
+			<td>Eye color</td>
+			<td>%s</td>
+		</tr>
+		<tr>
+			<td>Other physical characteristics</td>
+			<td>%s</td>
+		</tr>
+	</tbody>
+</table>
+
+<br>
+
+<div>
+	<b>Warrants</b><br>
+	%s
 </div>
+
+<br>
+
+<div>
+	<b>Judgments</b><br>
+	%s
+</div>
+
+<br>
+
+<div>
+	<b>Criminal History</b><br>
+	%s
+</div>
+
+</div>
+<br>
+Thank you for your submission --CUFF Team
+</body>
+</html>

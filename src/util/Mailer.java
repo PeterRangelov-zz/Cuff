@@ -31,7 +31,6 @@ public class Mailer {
 	public void sendStartupNotification () {
 		System.out.println("Sendgrid username: " + SENDGRID_USERNAME);
 		System.out.println("Sendgrid api key: " + SENDGRID_API_KEY);
-		
 		SendGrid sendgrid = new SendGrid(SENDGRID_API_KEY);
 
 	    Email email = new Email();
@@ -48,7 +47,6 @@ public class Mailer {
 		} catch (SendGridException e) {
 			e.printStackTrace();
 		}
-			
 	}
 	
 	public void emailSubmission (Contributor c, Subject s, PhysicalAppearance pa, List<Warrant> warrants, List<Judgment> judgments, List<CriminalHistory> criminalHistory) throws InterruptedException, IOException, URISyntaxException {
@@ -87,64 +85,72 @@ public class Mailer {
 	    
 	    StringBuffer criminalHistoryTable = new StringBuffer("<table><tr><td>Municipality</td><td>Charge</td><td>Issued</td></tr>");
     	for (CriminalHistory ch : criminalHistory) {
-    		judgmentsTable
+    		criminalHistoryTable
 	    	.append("<tr>")
 	    		.append("<td>"+ch.getMunicipality()+"</td>")
 	    		.append("<td>"+ch.getCharge()+"</td>")
 	    		.append("<td>"+ch.getMonth()+"/"+ch.getYear()+"</td>")
 	    		.append("</tr>");
 	    }
-    	judgmentsTable.append("</table>");
+    	criminalHistoryTable.append("</table>");
     	
     	// Digest file
     	String urlString = "http://pastebin.com/raw/9d2h5H8V";
     	URL url =  new URL(urlString);
-    	File f = new File("temp.txt");
-    	FileUtils.copyURLToFile(url, f);
-    	String data = FileUtils.readFileToString(f, "UTF-8");
-    	System.out.println(data);
+    	File urlFile = new File("temp.txt");
+    	File localFile = new File("C:/Program Files/eclipse/workspaces/projects/CUFF/WebContent/WEB-INF/template.html");
+    	FileUtils.copyURLToFile(url, urlFile);
+    	String data = FileUtils.readFileToString(urlFile, "UTF-8");
+    	String emailContent = String.format(data, c.getFirstName(), c.getLastName(), c.getEmailAddress(), c.getPhoneNumber(), c.getPreferredContactMethod(), c.getRelationship(), c.getCity(), c.getState(), c.getZipcode(),
+    			c.getContactName(), c.getContactOrganization(), c.getContactCity(), c.getContactState(), c.getContactPhoneNumber(), c.getContactEmailAddress(),
+    			s.getFirstName(), s.getMiddleName(), s.getLastName(), s.getAliases(), s.getDriversLicense(), s.getSsn(), s.getDob(), s.getBackgroundInfo(),
+    			pa.getRace(), pa.getNationality(), pa.getHeight()/12 + " feet, " +pa.getHeight()%12+" inches", pa.getWeight()+ "lbs", pa.getHairColor(), pa.getEyeColor(), pa.getPhysicalCharacteristics(),
+    			warrantsTable.toString(), judgmentsTable.toString(), criminalHistoryTable.toString());
+    	System.out.println(emailContent);
 	    
 	    // SET TEMPLATE
-	    email.setTemplateId(System.getenv("SENDGRID_TEMPLATE_ID"));
-	    email.getSMTPAPI()
-	    	.addSubstitution(":contributor_first_name", c.getFirstName())
-	    	.addSubstitution(":contributor_last_name", c.getLastName())
-	    	.addSubstitution(":contributor_email_address", c.getEmailAddress())
-	    	.addSubstitution(":contributor_phone_number", c.getPhoneNumber())
-	    	.addSubstitution(":contributor_preferred_contact_method", c.getPreferredContactMethod())
-	    	.addSubstitution(":contributor_relationship_to_subject", c.getRelationship())
-	    	.addSubstitution(":contributor_city", c.getCity())
-	    	.addSubstitution(":contributor_state", c.getState())
-	    	.addSubstitution(":contributor_zipcode", c.getZipcode())
-	    	.addSubstitution(":contributor_contact_name", c.getCity())
-	    	.addSubstitution(":contributor_contact_organization", c.getContactOrganization())
-	    	.addSubstitution(":contributor_contact_city", c.getContactCity())
-	    	.addSubstitution(":contributor_contact_state", c.getContactState())
-	    	.addSubstitution(":contributor_contact_phone_number", c.getContactPhoneNumber())
-	    	.addSubstitution(":contributor_contact_email_address", c.getContactEmailAddress())
-	    	.addSubstitution(":first_name", s.getFirstName())
-	    	.addSubstitution(":middle_name", s.getMiddleName())
-	    	.addSubstitution(":last_name", s.getLastName())
-	    	.addSubstitution(":aliases", s.getAliases())
-	    	.addSubstitution(":gender", s.getGender())
-	    	.addSubstitution(":drivers_license", s.getDriversLicense())
-	    	.addSubstitution(":ssn", s.getSsn())
-	    	.addSubstitution(":dob", s.getDob())
-	    	.addSubstitution(":background_info", s.getBackgroundInfo())
-	    	.addSubstitution(":race", pa.getRace())
-	    	.addSubstitution(":nationality", pa.getNationality())
-	    	.addSubstitution(":height", pa.getHeight()/12 + " feet, " +pa.getHeight()%12+" inches")
-	    	.addSubstitution(":weight", pa.getWeight() + "lbs")
-	    	.addSubstitution(":hair_color", pa.getHairColor())
-	    	.addSubstitution(":eye_color", pa.getEyeColor())
-	    	.addSubstitution(":physical_characteristics", pa.getPhysicalCharacteristics())
-	    	.addSubstitution(":warrants_table", warrantsTable.toString())
-	    	.addSubstitution(":judgments_table", judgmentsTable.toString())
-	    	.addSubstitution(":criminal_history_table", criminalHistoryTable.toString())
-	    	;
+//	    email.setTemplateId(System.getenv("SENDGRID_TEMPLATE_ID"));
+//	    email.getSMTPAPI()
+//	    	.addSubstitution(":contributor_first_name", c.getFirstName())
+//	    	.addSubstitution(":contributor_last_name", c.getLastName())
+//	    	.addSubstitution(":contributor_email_address", c.getEmailAddress())
+//	    	.addSubstitution(":contributor_phone_number", c.getPhoneNumber())
+//	    	.addSubstitution(":contributor_preferred_contact_method", c.getPreferredContactMethod())
+//	    	.addSubstitution(":contributor_relationship_to_subject", c.getRelationship())
+//	    	.addSubstitution(":contributor_city", c.getCity())
+//	    	.addSubstitution(":contributor_state", c.getState())
+//	    	.addSubstitution(":contributor_zipcode", c.getZipcode())
+//	    	.addSubstitution(":contributor_contact_name", c.getCity())
+//	    	.addSubstitution(":contributor_contact_organization", c.getContactOrganization())
+//	    	.addSubstitution(":contributor_contact_city", c.getContactCity())
+//	    	.addSubstitution(":contributor_contact_state", c.getContactState())
+//	    	.addSubstitution(":contributor_contact_phone_number", c.getContactPhoneNumber())
+//	    	.addSubstitution(":contributor_contact_email_address", c.getContactEmailAddress())
+//	    	.addSubstitution(":first_name", s.getFirstName())
+//	    	.addSubstitution(":middle_name", s.getMiddleName())
+//	    	.addSubstitution(":last_name", s.getLastName())
+//	    	.addSubstitution(":aliases", s.getAliases())
+//	    	.addSubstitution(":gender", s.getGender())
+//	    	.addSubstitution(":drivers_license", s.getDriversLicense())
+//	    	.addSubstitution(":ssn", s.getSsn())
+//	    	.addSubstitution(":dob", s.getDob())
+//	    	.addSubstitution(":background_info", s.getBackgroundInfo())
+//	    	.addSubstitution(":race", pa.getRace())
+//	    	.addSubstitution(":nationality", pa.getNationality())
+//	    	.addSubstitution(":height", pa.getHeight()/12 + " feet, " +pa.getHeight()%12+" inches")
+//	    	.addSubstitution(":weight", pa.getWeight() + "lbs")
+//	    	.addSubstitution(":hair_color", pa.getHairColor())
+//	    	.addSubstitution(":eye_color", pa.getEyeColor())
+//	    	.addSubstitution(":physical_characteristics", pa.getPhysicalCharacteristics())
+//	    	.addSubstitution(":warrants_table", warrantsTable.toString())
+//	    	.addSubstitution(":judgments_table", judgmentsTable.toString())
+//	    	.addSubstitution(":criminal_history_table", criminalHistoryTable.toString())
+//	    	;
 	    
 	    email.setSubject(c.getEntryType()+" online submission from " + c.getFirstName());
-	    email.setHtml("Thank you for your submission --CUFF Team");
+	    email.setHtml(emailContent);
+//	    email.setHtml("Thank you for your submission --CUFF Team");
+	    
 	    
 	    Map<String, String> headers = email.getHeaders();
 	    Set<String> keys = headers.keySet();
