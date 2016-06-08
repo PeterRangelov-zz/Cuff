@@ -1,5 +1,14 @@
 package util;
+import java.io.File;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import org.apache.commons.io.FileUtils;
 
 import com.sendgrid.SendGrid;
 import com.sendgrid.SendGrid.Email;
@@ -27,6 +36,7 @@ public class Mailer {
 
 	    Email email = new Email();
 	    email.addTo(SENDGRID_USERNAME);
+	    email.addSmtpApiTo(SENDGRID_USERNAME);
 	    email.setFrom(SUBMISSION_SENDER);
 	    email.setSubject("CUFF Notification: Application Startup");
 	    email.setText("Startup Servlet triggered in environment: " + System.getenv("ENVIRONMENT"));
@@ -41,7 +51,7 @@ public class Mailer {
 			
 	}
 	
-	public void emailSubmission (Contributor c, Subject s, PhysicalAppearance pa, List<Warrant> warrants, List<Judgment> judgments, List<CriminalHistory> criminalHistory) throws InterruptedException {
+	public void emailSubmission (Contributor c, Subject s, PhysicalAppearance pa, List<Warrant> warrants, List<Judgment> judgments, List<CriminalHistory> criminalHistory) throws InterruptedException, IOException, URISyntaxException {
 		SendGrid sendgrid = new SendGrid(SENDGRID_API_KEY);
 
 	    Email email = new Email();
@@ -85,6 +95,14 @@ public class Mailer {
 	    		.append("</tr>");
 	    }
     	judgmentsTable.append("</table>");
+    	
+    	// Digest file
+    	String urlString = "http://pastebin.com/raw/9d2h5H8V";
+    	URL url =  new URL(urlString);
+    	File f = new File("temp.txt");
+    	FileUtils.copyURLToFile(url, f);
+    	String data = FileUtils.readFileToString(f, "UTF-8");
+    	System.out.println(data);
 	    
 	    // SET TEMPLATE
 	    email.setTemplateId(System.getenv("SENDGRID_TEMPLATE_ID"));
@@ -124,12 +142,23 @@ public class Mailer {
 	    	.addSubstitution(":judgments_table", judgmentsTable.toString())
 	    	.addSubstitution(":criminal_history_table", criminalHistoryTable.toString())
 	    	;
-	    Thread.sleep(1000);
 	    
 	    email.setSubject(c.getEntryType()+" online submission from " + c.getFirstName());
 	    email.setHtml("Thank you for your submission --CUFF Team");
 	    
+	    Map<String, String> headers = email.getHeaders();
+	    Set<String> keys = headers.keySet();
+	    
+	    System.out.println("***************** PRINTING HEADERS *****************");
+	    System.out.println(headers.size() + " headers:");
+	    for (String key : keys) {
+	    	String value = (String) headers.get(key);
+	    	System.out.println(String.format("%s -> %s", key, value));
+	    }
+	    System.out.println("****************************************************");
+	    
 	    Response response;
+	    Thread.sleep(1000);
 		try {
 			response = sendgrid.send(email);
 			System.out.println(response.getMessage());

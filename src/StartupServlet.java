@@ -8,7 +8,7 @@ public class StartupServlet extends HttpServlet {
 	{
 		System.out.println("Startup servlet running");
 		Mailer mailer = new Mailer();
-		if (System.getenv("ENVIRONMENT").equalsIgnoreCase("PROD")) {
+		if (System.getenv("ENVIRONMENT").equalsIgnoreCase("PROD") || System.getenv("ENVIRONMENT").equalsIgnoreCase("STAGING")) {
 			mailer.sendStartupNotification();
 		}
 	}
