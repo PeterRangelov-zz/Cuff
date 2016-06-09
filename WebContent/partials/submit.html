@@ -164,13 +164,25 @@
 		</div>
 	</form>
 	
-
+	<div ng-show='isError'>
+		<h1 class='text-danger' >Unexpected error occured.</h1>
+		<p>Form could not be submitted due to a server error. Please print your submission as PDF (CTRL + P) and email it to cuffnonprof@earthlink.net</p>
+		<p>
+			<a href='mailto:peter.rangelov11@gmail.com?subject=CUFF Error: {{errorCode}} {{errorCodeText}}&body=""'>Click here to send an error report</a>. Please be sure to copy+paste the error stack trace below into the body of the email.
+		</p>
+		<div class='text-danger'>
+			{{errorDetails}}
+		</div>
+	</div>
 	<br><br>
 
-		<div class='pull-right'>
-			<button type='button' class='btn-sm btn-primary' ng-click='previousStep()'>Back</button>
-			<button type='button' class='btn-sm btn-primary' ng-click='submit()'>Submit</button>
-		</div>
-		<br><br>
+
+	<div class='pull-right'>
+		<button type='button' class='btn-sm btn-primary' ng-click='previousStep()'>Back</button>
+		<button type='button' class='btn-sm btn-primary' ng-click='submit()' ng-disabled='submitButtonDisabled'>Submit</button>
+	</div>
+		
+		
+	<br><br>
 	
 </body>

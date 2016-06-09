@@ -6,6 +6,11 @@ myApp.controller('submitController', ['$scope', 'SubmissionService', 'DropdownSe
 	$scope.warrants = SubmissionService.getWarrants();
 	$scope.criminalHistory = SubmissionService.getCriminalHistory();
 	
+	$scope.isError=false;
+	$scope.errorCode;
+	$scope.errorCodeText;
+	$scope.errorDetails;
+	
 	
 	console.log(SubmissionService.getContributor());
 
@@ -26,6 +31,7 @@ myApp.controller('submitController', ['$scope', 'SubmissionService', 'DropdownSe
 	$scope.submit = function() {
 		// if (isValid) {
 			console.log('Submitting to WS')
+			$scope.submitButtonDisabled = true;
 			var contributor = SubmissionService.getContributor();
 			var subject = SubmissionService.getSubject();
 			var physicalAppearance = SubmissionService.getPhysicalAppearance();
@@ -59,6 +65,11 @@ myApp.controller('submitController', ['$scope', 'SubmissionService', 'DropdownSe
 			       }, 
 			       function(response){
 			         console.log(response);
+			         $scope.submitButtonDisabled = false;
+			         $scope.isError=true;
+			         $scope.errorCode = response.status
+			         $scope.errorCodeText = response.statusText
+			         $scope.errorDetails=response.data;
 			    });
 			
 //			console.log(contributor)
