@@ -141,8 +141,8 @@
 		  	<div class='panel-body'>
 				<label>Race<input value='{{physicalAppearance.race}}' class='form-control input-sm' readonly></label>
 				<label>Nationality<input value='{{physicalAppearance.nationality}}' class='form-control input-sm' readonly></label>
-				<label>Height<input value='{{physicalAppearance.height}}' class='form-control input-sm' readonly></label>
-				<label>Weight<input value='{{physicalAppearance.weight}}' class='form-control input-sm' readonly></label>
+				<label>Height<input value='{{Math.floor(physicalAppearance.height/12)}}ft {{physicalAppearance.height%12}}in | {{Math.floor(physicalAppearance.height*2.54)}} cm ' class='form-control input-sm' readonly></label>
+				<label>Weight<input value='{{physicalAppearance.weight}} lbs | {{Math.floor(physicalAppearance.weight*0.453592)}} kg' class='form-control input-sm' readonly></label>
 				<label>Hair color<input value='{{physicalAppearance.hair_color}}' class='form-control input-sm' readonly></label>
 				<label>Eye color<input value='{{physicalAppearance.eye_color}}' class='form-control input-sm' readonly></label>
 				<label>Other characteristics<input value='{{physicalAppearance.physical_characteristics}}' class='form-control input-sm' readonly></label>
