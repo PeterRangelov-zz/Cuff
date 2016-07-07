@@ -1,4 +1,6 @@
 myApp.controller('submitController', ['$scope', 'SubmissionService', 'DropdownService', '$http', '$location', '$httpParamSerializerJQLike', function($scope, SubmissionService, DropdownService, $http, $location, $httpParamSerializerJQLike) {
+	$scope.Math = window.Math;
+	
 	$scope.contributor = SubmissionService.getContributor();
 	$scope.subject = SubmissionService.getSubject();
 	$scope.physicalAppearance = SubmissionService.getPhysicalAppearance();
