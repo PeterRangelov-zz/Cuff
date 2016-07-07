@@ -12,7 +12,7 @@
 	    </ul>
 	</div>
 	<h1 class='text-success'>Review & Submit</h1>
-	<p>Please review the information for accuracy. You can edit the information by going to that particular section using the links above, or the back button below.</p>
+	<p>Please review the information for accuracy before submission. You can edit the information by going to that particular section using the links above, or the back button below.</p>
 	<hr>
 
 	<form name='form' novalidate>
@@ -22,26 +22,60 @@
 			</div>
 		  	<div class='panel-body'>
 		  		<h4>Section 1</h4>
-				<label>Entry type<input value='{{contributor.entry_type}}' class='form-control input-sm' readonly></label>
-				<label>First name<input value='{{contributor.first_name}}' class='form-control input-sm' readonly></label>
-				<label>Last name<input value='{{contributor.last_name}}' class='form-control input-sm' readonly></label>
-				<label>Relationship to subject<input value='{{contributor.relationship}}' class='form-control input-sm' readonly></label>
-				<label>City<input value='{{contributor.city}}' class='form-control input-sm' readonly></label>
-				<label>State<input value='{{contributor.state}}' class='form-control input-sm' readonly></label>
-				<label>Zipcode<input value='{{contributor.zipcode}}' class='form-control input-sm' readonly></label>
-				<label>Phone number<input value='{{contributor.phone_number}}' class='form-control input-sm' readonly></label>
-				<label>Email address<input value='{{contributor.email_address}}' class='form-control input-sm' readonly></label>
-				<label>Preferred contact method<input value='{{contributor.preferred_contact_method}}' class='form-control input-sm' readonly></label>
+		  		<div class='form-group'>
+					<label>Entry type</label>
+					<input value='{{contributor.entry_type}}' class='form-control input-sm' readonly>
+				</div>
+		  		<div class='form-group'>
+					<label>Name</label>
+					<input value='{{contributor.first_name}} {{contributor.last_name}}' class='form-control input-sm' readonly>
+				</div>
+		  		<div class='form-group'>
+					<label>Relationship to subject</label>
+					<input value='{{contributor.relationship}}' class='form-control input-sm' readonly>
+				</div>
+		  		<div class='form-group'>
+					<label>Address</label>
+					<input value='{{contributor.city}}, {{contributor.state}} {{contributor.zipcode}}' class='form-control input-sm' readonly>
+				</div>
+		  		<div class='form-group'>
+					<label>Phone number</label>
+					<input value='{{contributor.phone_number}}' class='form-control input-sm' readonly>
+				</div>
+		  		<div class='form-group'>
+					<label>Email address</label>
+					<input value='{{contributor.email_address}}' class='form-control input-sm' readonly>
+				</div>
+		  		<div class='form-group'>
+					<label>Preferred contact method</label>
+					<input value='{{contributor.preferred_contact_method}}' class='form-control input-sm' readonly>
+				</div>
 			</div>
+				
 			<div class='panel-body'>
 				<h4>Section 2</h4>
-				<label>Contact name<input value='{{contributor.contact_name}}' class='form-control input-sm' readonly></label>
-				<label>Organization<input value='{{contributor.contact_organization}}' class='form-control input-sm' readonly></label>
-				<label>City<input value='{{contributor.contact_city}}' class='form-control input-sm' readonly></label>
-				<label>State<input value='{{contributor.contact_state}}' class='form-control input-sm' readonly></label>
-				<label>Phone number<input value='{{contributor.contact_phone_number}}' class='form-control input-sm' readonly></label>
-				<label>Email address<input value='{{contributor.contact_email_address}}' class='form-control input-sm' readonly></label>
+		  		<div class='form-group'>
+					<label>Contact name</label>
+					<input value='{{contributor.contact_name}}' class='form-control input-sm' readonly>
+				</div>
+		  		<div class='form-group'>
+					<label>Organization</label>
+					<input value='{{contributor.contact_organization}}' class='form-control input-sm' readonly>
+				</div>
+		  		<div class='form-group'>
+					<label>Address</label>
+					<input value='{{contributor.contact_city}}, {{contributor.contact_state}}' class='form-control input-sm' readonly>
+				</div>
+		  		<div class='form-group'>
+					<label>Phone number</label>
+					<input value='{{contributor.contact_phone_number}}' class='form-control input-sm' readonly>
+				</div>
+				<div class='form-group'>
+					<label>Email address</label>
+					<input value='{{contributor.contact_email_address}}' class='form-control input-sm' readonly>
+				</div>
 			</div>
+			
 		</div>
 		
 		<div class='panel panel-success'>
@@ -49,15 +83,54 @@
 				<h4>Subject Information</h4>
 			</div>
 		  	<div class='panel-body'>
-				<label>Gender<input value='{{subject.gender}}' class='form-control input-sm' readonly></label>
-				<label>First name<input value='{{subject.first_name}}' class='form-control input-sm' readonly></label>
-				<label>Middle name<input value='{{subject.middle_name}}' class='form-control input-sm' readonly></label>
-				<label>Last name<input value='{{subject.last_name}}' class='form-control input-sm' readonly></label>
-				<label>Aliases<input value='{{subject.aliases}}' class='form-control input-sm' readonly></label>
-				<label>Driver's license<input value='{{subject.drivers_license}}' class='form-control input-sm' readonly></label>
-				<label>Social security number<input value='{{subject.ssn}}' class='form-control input-sm' readonly></label>
-				<label>Date of birth<input value='{{subject.dob}}' class='form-control input-sm' readonly></label>
-				<label>Background information<input value='{{subject.background_info}}' class='form-control input-sm' readonly></label>
+		  		<div class='form-group'>
+					<label>Gender</label>
+					<input value='{{subject.gender}}' class='form-control input-sm' readonly>
+				</div>
+				<div class='form-group'>
+					<label>Name</label>
+					<input value='{{subject.first_name}} {{subject.middle_name}} {{subject.last_name}}' class='form-control input-sm' readonly>
+				</div>
+				<div class='form-group'>
+					<label>Aliases</label>
+					<input value='{{subject.aliases}}' class='form-control input-sm' readonly>
+				</div>
+				<div class='form-group'>
+					<label>Driver's license</label>
+					<input value='{{subject.drivers_license}}' class='form-control input-sm' readonly>
+				</div>
+				<div class='form-group'>
+					<label>Social security number</label>
+					<input value='{{subject.ssn}}' class='form-control input-sm' readonly>
+				</div>
+				<div class='form-group'>
+					<label>Date of birth</label>
+					<input value='{{subject.dob}}' class='form-control input-sm' readonly>
+				</div>
+				<div class='form-group'>
+					<label>Profession(s)</label>
+					<input value='{{subject.profession}}' class='form-control input-sm' readonly>
+				</div>
+				<div class='form-group'>
+					<label>States of residence</label>
+					<input value='{{subject.states}}' class='form-control input-sm' readonly>
+				</div>
+				<div class='form-group'>
+					<label>Vehicle</label>
+					<input value='{{subject.vehicle}}' class='form-control input-sm' readonly>
+				</div>
+				<div class='form-group'>
+					<label>Vehicle Plate Number</label>
+					<input value='{{subject.vehicle_plate_number}}' class='form-control input-sm' readonly>
+				</div>
+				<div class='form-group'>
+					<label>VIN</label>
+					<input value='{{subject.vin}}' class='form-control input-sm' readonly>
+				</div>
+				<div class='form-group'>
+					<label>Background information</label>
+					<input value='{{subject.background_info}}' class='form-control input-sm' readonly>
+				</div>				
 			</div>
 		</div>
 		
@@ -81,7 +154,8 @@
 				<h4>Warrants</h4>
 			</div>
 		  	<div class='panel-body'>
-				<table class='table table-bordered'>
+		  		<p ng-hide='warrants.length>0'>You have not entered warrants.</p>
+				<table class='table table-bordered' ng-show='warrants.length>0'>
 					<thead>
 						<tr>
 							<th>Municipality</th>
@@ -107,7 +181,8 @@
 				<h4>Judgments</h4>
 			</div>
 		  	<div class='panel-body'>
-				<table class='table table-bordered'>
+		  		<p ng-hide='judgments.length>0'>You have not entered judgments.</p>
+				<table class='table table-bordered' ng-show='judgments.length>0'>
 					<thead>
 						<tr>
 							<th>Municipality</th>
@@ -134,7 +209,8 @@
 			</div>
 		  	<div class='panel-body'>
 		  		<label>NCIS number<input value='' class='form-control input-sm' readonly></label>
-				<table class='table table-bordered'>
+		  		<p ng-hide='criminalHistory.length>0'>You have not entered criminal history.</p>
+				<table class='table table-bordered' ng-show='criminalHistory.length>0'>
 					<thead>
 						<tr>
 							<th>Municipality</th>
@@ -152,8 +228,6 @@
 				</table>
 			</div>
 		</div>
-		
-		
 		
 		
 		
