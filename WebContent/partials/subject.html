@@ -81,6 +81,47 @@
 		</div>
 		
 		<div class='row'>
+			<div class='col-xs-12 col-sm-4'>
+				<div class='form-group'>
+					<label for='vin'>VIN</label>
+					<input type='text' name='vin' ng-model='vin' class='form-control input-sm' maxlength='30'>
+				</div>
+			</div>
+			<div class='col-xs-12 col-sm-4'>
+				<div class='form-group'>
+					<label for='vehicle'>Vehicle</label>
+					<input type='text' name='vehicle' ng-model='vehicle' class='form-control input-sm' maxlength='30'>
+				</div>
+			</div>
+
+			<div class='col-xs-12 col-sm-4'>
+				<div class='form-group'>
+					<label for='vehicle_plate_number'>Vehicle Plate Number</label>
+					<input type='text' name='vehicle_plate_number' ng-model='vehicle_plate_number' class='form-control input-sm' maxlength='20'>
+				</div>
+			</div>
+		</div>
+		
+		<div class='row'>
+			<div class='col-xs-12 col-sm-4'>
+				<div class='form-group'>
+					<label for='states'>States of residence</label>
+					<select name='states' ng-model='states' class='form-control input-sm' multiple>
+						<option ng-repeat='s in statesList.content' value='{{s}}'>{{s}}</option>
+					</select>
+					Hold down the Ctrl (windows) / Command (Mac) button to select multiple states.
+				</div>
+			</div>
+			<div class='col-xs-12 col-sm-4'>
+				<div class='form-group'>
+					<label for='reward'>Reward</label>
+					<input type='text' name='reward' ng-model='reward' class='form-control input-sm' maxlength='11'>
+				</div>
+			</div>
+
+		</div>
+		
+		<div class='row'>
 			<div class='col-xs-12'>
 				<div class='form-group'>
 					<label for='background_info'>Background info</label>

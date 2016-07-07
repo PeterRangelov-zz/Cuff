@@ -20,6 +20,16 @@ public class Subject {
 	private String dob;
 	private String backgroundInfo;
 	
+	// New fields
+	private String profession;
+	private String vehicle;
+	private String vehiclePlateNumber;
+	private String vin;
+	
+	private String reward;
+	
+	private ArrayList<String> states = new ArrayList<String>();
+	
 	
 	
 

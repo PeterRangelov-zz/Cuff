@@ -95,15 +95,15 @@ public class Mailer {
     	criminalHistoryTable.append("</table>");
     	
     	// Digest file
-    	String urlString = "http://pastebin.com/raw/9d2h5H8V";
+    	String urlString = System.getenv("EMAIL_TEMPLATE_URL");
     	URL url =  new URL(urlString);
     	File urlFile = new File("temp.txt");
-    	File localFile = new File("C:/Program Files/eclipse/workspaces/projects/CUFF/WebContent/WEB-INF/template.html");
     	FileUtils.copyURLToFile(url, urlFile);
     	String data = FileUtils.readFileToString(urlFile, "UTF-8");
     	String emailContent = String.format(data, c.getFirstName(), c.getLastName(), c.getEmailAddress(), c.getPhoneNumber(), c.getPreferredContactMethod(), c.getRelationship(), c.getCity(), c.getState(), c.getZipcode(),
     			c.getContactName(), c.getContactOrganization(), c.getContactCity(), c.getContactState(), c.getContactPhoneNumber(), c.getContactEmailAddress(),
-    			s.getFirstName(), s.getMiddleName(), s.getLastName(), s.getAliases(), s.getDriversLicense(), s.getSsn(), s.getDob(), s.getBackgroundInfo(),
+    			s.getFirstName(), s.getMiddleName(), s.getLastName(), s.getGender(), s.getAliases(), s.getDriversLicense(), s.getSsn(), s.getDob(), s.getBackgroundInfo(),
+    			s.getStates(), s.getVehicle(), s.getVehiclePlateNumber(), s.getVin(), s.getReward(),
     			pa.getRace(), pa.getNationality(), pa.getHeight()/12 + " feet, " +pa.getHeight()%12+" inches", pa.getWeight()+ "lbs", pa.getHairColor(), pa.getEyeColor(), pa.getPhysicalCharacteristics(),
     			warrantsTable.toString(), judgmentsTable.toString(), criminalHistoryTable.toString());
     	System.out.println(emailContent);

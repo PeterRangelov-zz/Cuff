@@ -67,7 +67,13 @@ myApp.factory('SubmissionService', function ($cookies, $cookieStore) {
         		drivers_license: newVal.drivers_license,
         		ssn: newVal.ssn,
         		dob: newVal.dob,
-        		background_info: newVal.background_info
+        		background_info: newVal.background_info,
+        		states: newVal.states,
+		    	profession: newVal.profession,
+		    	vehicle: newVal.vehicle,
+		    	vehicle_plate_number: newVal.vehicle_plate_number,
+		    	vin: newVal.vin,
+		    	reward: newVal.reward
         	};
         },
         resetSubject: function () {
