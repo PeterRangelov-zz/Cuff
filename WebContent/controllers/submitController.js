@@ -1,5 +1,6 @@
 myApp.controller('submitController', ['$scope', 'SubmissionService', 'DropdownService', '$http', '$location', '$httpParamSerializerJQLike', function($scope, SubmissionService, DropdownService, $http, $location, $httpParamSerializerJQLike) {
 	$scope.Math = window.Math;
+	$scope.isProcessing = false;
 	
 	$scope.contributor = SubmissionService.getContributor();
 	$scope.subject = SubmissionService.getSubject();
@@ -33,7 +34,8 @@ myApp.controller('submitController', ['$scope', 'SubmissionService', 'DropdownSe
 	$scope.submit = function() {
 		// if (isValid) {
 			console.log('Submitting to WS')
-			$scope.submitButtonDisabled = true;
+			
+			$scope.isProcessing = true;
 			var contributor = SubmissionService.getContributor();
 			var subject = SubmissionService.getSubject();
 			var physicalAppearance = SubmissionService.getPhysicalAppearance();
@@ -63,15 +65,15 @@ myApp.controller('submitController', ['$scope', 'SubmissionService', 'DropdownSe
 				.then(
 			       function(response){
 			         console.log(response.data);
-			         $location.path('confirmation')
+			         $location.path('confirmation');
 			       }, 
 			       function(response){
 			         console.log(response);
-			         $scope.submitButtonDisabled = false;
 			         $scope.isError=true;
 			         $scope.errorCode = response.status
 			         $scope.errorCodeText = response.statusText
 			         $scope.errorDetails=response.data;
+			         $scope.isProcessing = false;
 			    });
 			
 //			console.log(contributor)

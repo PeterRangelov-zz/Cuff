@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<script type='text/javascript' src='lib/warn_on_reload.js'></script>
 <body>
 	<div>
 		<ul class="breadcrumb">
@@ -252,8 +253,8 @@
 
 
 	<div class='pull-right'>
-		<button type='button' class='btn-sm btn-primary' ng-click='previousStep()'>Back</button>
-		<button type='button' class='btn-sm btn-primary' ng-click='submit()' ng-disabled='submitButtonDisabled'>Submit</button>
+		<button type='button' class='btn-sm btn-primary' ng-click='previousStep()' ng-disabled='isProcessing'>Back</button>
+		<button type='button' class='btn-sm btn-primary' ng-click='submit()' ng-disabled='isProcessing'>Submit</button>
 	</div>
 		
 		
