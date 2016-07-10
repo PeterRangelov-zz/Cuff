@@ -25,8 +25,10 @@ import dto.Warrant;
 public class Mailer {
 	private static final String SENDGRID_USERNAME = System.getenv("SENDGRID_USERNAME");
 	private static final String SENDGRID_API_KEY = System.getenv("SENDGRID_API_KEY");
-	private static final String SUBMISSION_RECEPIENT = System.getenv("SUBMISSION_RECEPIENT");
 	private static final String SUBMISSION_SENDER = System.getenv("SUBMISSION_SENDER");
+	private static final String SUBMISSION_RECEPIENT = System.getenv("SUBMISSION_RECEPIENT");
+	private static final String SUBMISSION_BCC = System.getenv("SUBMISSION_BCC");
+	
 	
 	public void sendStartupNotification () {
 		System.out.println("Sendgrid username: " + SENDGRID_USERNAME);
@@ -55,6 +57,7 @@ public class Mailer {
 	    Email email = new Email();
 	    email.addTo(SUBMISSION_RECEPIENT);
 	    email.setFrom(SUBMISSION_SENDER);
+	    email.setBcc(new String[]{SUBMISSION_BCC});
 	    
 	    // Add border
 	    StringBuffer warrantsTable = new StringBuffer("<table><tr><td>Municipality</td><td>Charge</td><td>Warrant number</td><td>Issued</td></tr>");
