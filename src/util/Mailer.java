@@ -161,7 +161,7 @@ public class Mailer {
 		    confirmationEmail.setBcc(new String[]{SUBMISSION_BCC});
 		    confirmationEmail.setSubject("Thank you for your online submission to CUFF");
 		    confirmationEmail.setHtml("Thank you for your submission. If you'd like to send photos of the subject, please email mail@straightshooter.net. Please include the subject's first and last name, and the date of your entry.\n" + emailContent);
-		    sendgrid.send(email);
+		    sendgrid.send(confirmationEmail);
 	    }
 	    catch (SendGridException e) {
 	    }
