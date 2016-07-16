@@ -29,10 +29,6 @@ import util.Mailer;
 
 @Path("/submit")
 public class SubmissionController {
-	 @GET @Produces(MediaType.TEXT_PLAIN)
-	 public String sayPlainTextHello() {
-	   return "Hello Jersey";
-	 }
 	 
 	 @POST @Consumes(MediaType.APPLICATION_JSON) @Produces(MediaType.TEXT_PLAIN)
 	 public Response submitContributorInfo(@FormParam("testInput") String testInput, @FormParam("contributor") String contributor, @FormParam("subject") String subject, @FormParam("physical_appearance") String physicalAppearance, @FormParam("warrants") String warrants, @FormParam("judgments") String judgments, @FormParam("criminal_history") String criminalHistory) throws JsonParseException, JsonMappingException, IOException, InterruptedException, URISyntaxException {

@@ -1,7 +1,6 @@
 package util;
 import java.io.File;
 import java.io.IOException;
-import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.List;
@@ -60,7 +59,7 @@ public class Mailer {
 	    email.setBcc(new String[]{SUBMISSION_BCC});
 	    
 	    // Add border
-	    StringBuffer warrantsTable = new StringBuffer("<table><tr><td>Municipality</td><td>Charge</td><td>Warrant number</td><td>Issued</td></tr>");
+	    StringBuilder warrantsTable = new StringBuilder("<table><tr><td>Municipality</td><td>Charge</td><td>Warrant number</td><td>Issued</td></tr>");
     	for (Warrant w : warrants) {
 	    	warrantsTable
 	    	.append("<tr>")
@@ -72,7 +71,7 @@ public class Mailer {
 	    }
 	    warrantsTable.append("</table>");
 	    
-	    StringBuffer judgmentsTable = new StringBuffer("<table><tr><td>Municipality</td><td>Judgment number</td><td>Amount</td><td>Issued</td></tr>");
+	    StringBuilder judgmentsTable = new StringBuilder("<table><tr><td>Municipality</td><td>Judgment number</td><td>Amount</td><td>Issued</td></tr>");
     	for (Judgment j : judgments) {
     		judgmentsTable
 	    	.append("<tr>")
@@ -86,7 +85,7 @@ public class Mailer {
 	    
 	    System.out.println(warrantsTable);
 	    
-	    StringBuffer criminalHistoryTable = new StringBuffer("<table><tr><td>Municipality</td><td>Charge</td><td>Issued</td></tr>");
+	    StringBuilder criminalHistoryTable = new StringBuilder("<table><tr><td>Municipality</td><td>Charge</td><td>Issued</td></tr>");
     	for (CriminalHistory ch : criminalHistory) {
     		criminalHistoryTable
 	    	.append("<tr>")
@@ -152,22 +151,21 @@ public class Mailer {
 	    
 	    email.setSubject(c.getEntryType()+" online submission from " + c.getFirstName());
 	    email.setHtml(emailContent);
-//	    email.setHtml("Thank you for your submission --CUFF Team");
-	    
-	    
-	    Map<String, String> headers = email.getHeaders();
-	    Set<String> keys = headers.keySet();
-	    
-	    System.out.println("***************** PRINTING HEADERS *****************");
-	    System.out.println(headers.size() + " headers:");
-	    for (String key : keys) {
-	    	String value = (String) headers.get(key);
-	    	System.out.println(String.format("%s -> %s", key, value));
-	    }
-	    System.out.println("****************************************************");
-	    
 	    Response response;
-	    Thread.sleep(1000);
+	    
+	    try {
+	    	// Email confirmation to contributor
+		    Email confirmationEmail = new Email();
+		    confirmationEmail.addTo(c.getEmailAddress());
+		    confirmationEmail.setFrom(SUBMISSION_SENDER);
+		    confirmationEmail.setBcc(new String[]{SUBMISSION_BCC});
+		    confirmationEmail.setSubject("Thank you for your online submission to CUFF");
+		    confirmationEmail.setHtml("Thank you for your submission. If you'd like to send photos of the subject, please email mail@straightshooter.net. Please include the subject's first and last name, and the date of your entry.\n" + emailContent);
+		    sendgrid.send(email);
+	    }
+	    catch (SendGridException e) {
+	    }
+	    
 		try {
 			response = sendgrid.send(email);
 			System.out.println(response.getMessage());
