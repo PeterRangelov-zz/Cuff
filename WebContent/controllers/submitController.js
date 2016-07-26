@@ -1,4 +1,4 @@
-myApp.controller('submitController', ['$scope', 'SubmissionService', 'DropdownService', '$http', '$location', '$httpParamSerializerJQLike', function($scope, SubmissionService, DropdownService, $http, $location, $httpParamSerializerJQLike) {
+cuff.controller('submitController', ['$scope', 'SubmissionService', 'DropdownService', '$http', '$location', '$httpParamSerializerJQLike', function($scope, SubmissionService, DropdownService, $http, $location, $httpParamSerializerJQLike) {
 	$scope.Math = window.Math;
 	$scope.isProcessing = false;
 	

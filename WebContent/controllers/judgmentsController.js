@@ -1,4 +1,4 @@
-myApp.controller('judgmentsController', ['$scope', 'SubmissionService', 'DropdownService', '$location', function($scope, SubmissionService, DropdownService, $location) {
+cuff.controller('judgmentsController', ['$scope', 'SubmissionService', 'DropdownService', '$location', function($scope, SubmissionService, DropdownService, $location) {
 		$scope.judgments = [];
 		$scope.municipality;
 		$scope.amount;

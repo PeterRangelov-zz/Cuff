@@ -1,4 +1,4 @@
-myApp.controller('warrantsController', ['$scope', 'SubmissionService', 'DropdownService', '$location', function($scope, SubmissionService, DropdownService, $location) {
+cuff.controller('warrantsController', ['$scope', 'SubmissionService', 'DropdownService', '$location', function($scope, SubmissionService, DropdownService, $location) {
 	$scope.warrants = [];
 	$scope.municipality;
 	$scope.charge;

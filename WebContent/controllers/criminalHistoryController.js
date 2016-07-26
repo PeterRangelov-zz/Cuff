@@ -1,4 +1,4 @@
-myApp.controller('criminalHistoryController', ['$scope', 'SubmissionService', '$location', function($scope, SubmissionService, $location) {
+cuff.controller('criminalHistoryController', ['$scope', 'SubmissionService', '$location', function($scope, SubmissionService, $location) {
 		$scope.entries = [];
 		$scope.municipality;
 		$scope.charge;

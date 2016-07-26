@@ -1,4 +1,4 @@
-myApp.service('DropdownService', function($http) {
+cuff.service('DropdownService', function($http) {
 	var stateList = {content:null}
 	var raceList = {content:null}
 	var nationalityList = {content:null}

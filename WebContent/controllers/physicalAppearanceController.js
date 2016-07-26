@@ -1,4 +1,4 @@
-myApp.controller('physicalAppearanceController', ['$scope', 'SubmissionService', 'DropdownService', '$location', function($scope, SubmissionService, DropdownService, $location) {
+cuff.controller('physicalAppearanceController', ['$scope', 'SubmissionService', 'DropdownService', '$location', function($scope, SubmissionService, DropdownService, $location) {
 		$scope.Math = window.Math;
 		$scope.races = DropdownService.getRaceList();
 		$scope.nationalities = DropdownService.getNationalityList();

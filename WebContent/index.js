@@ -1,8 +1,6 @@
-var myApp = angular.module("myApp", ['ui.utils.masks', 'ngRoute', 'ngCookies']);
+var cuff = angular.module("cuff", ['ui.mask', 'ngRoute', 'ngCookies']);
 
-//myApp.controller
-
-myApp.config(['$routeProvider', function($routeProvider) {
+cuff.config(['$routeProvider', function($routeProvider) {
 	$routeProvider
 		.when('/', {
 			templateUrl: 'partials/contributor.html',
@@ -46,29 +44,3 @@ myApp.config(['$routeProvider', function($routeProvider) {
 
 
 }]);
-
-
-
-
-var INTEGER_REGEXP = /^\-?\d+$/;
-myApp.directive('integer', function() {
-  return {
-    require: 'ngModel',
-    link: function(scope, elm, attrs, ctrl) {
-      ctrl.$validators.integer = function(modelValue, viewValue) {
-        if (ctrl.$isEmpty(modelValue)) {
-          // consider empty models to be valid
-          return true;
-        }
-
-        if (INTEGER_REGEXP.test(viewValue)) {
-          // it is valid
-          return true;
-        }
-
-        // it is invalid
-        return false;
-      };
-    }
-  }
-});

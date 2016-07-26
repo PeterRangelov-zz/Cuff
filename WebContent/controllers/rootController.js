@@ -1,6 +1,4 @@
-myApp.controller('rootController', ['$scope', '$http', '$httpParamSerializerJQLike', 'SubmissionService', 'DropdownService', '$location', function($scope, $http, $httpParamSerializerJQLike, SubmissionService, DropdownService, $location) {
-	
-
+cuff.controller('rootController', ['$scope', '$http', '$httpParamSerializerJQLike', 'SubmissionService', 'DropdownService', '$location', function($scope, $http, $httpParamSerializerJQLike, SubmissionService, DropdownService, $location) {
 	
 	$scope.submit = function() {
 		// if (isValid) {

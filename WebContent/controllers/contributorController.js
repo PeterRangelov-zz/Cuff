@@ -1,4 +1,4 @@
-myApp.controller('contributorController', ['$scope', 'SubmissionService', 'DropdownService', '$location', '$cookies', function($scope, SubmissionService, DropdownService, $location, $cookies) {
+cuff.controller('contributorController', ['$scope', 'SubmissionService', 'DropdownService', '$location', '$cookies', function($scope, SubmissionService, DropdownService, $location, $cookies) {
 	$scope.entry_type='New';
 	$scope.first_name;
 	$scope.last_name;

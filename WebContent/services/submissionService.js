@@ -1,4 +1,4 @@
-myApp.factory('SubmissionService', function ($cookies, $cookieStore) {
+cuff.factory('SubmissionService', function ($cookies, $cookieStore) {
     var contributor = {};
     var subject = {};
     var physicalAppearance = {};
