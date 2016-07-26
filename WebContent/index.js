@@ -1,6 +1,7 @@
 var cuff = angular.module("cuff", ['ui.mask', 'ngRoute', 'ngCookies']);
 
-cuff.config(['$routeProvider', function($routeProvider) {
+cuff.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+	$locationProvider.html5Mode(true);
 	$routeProvider
 		.when('/', {
 			templateUrl: 'partials/contributor.html',

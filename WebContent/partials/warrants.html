@@ -3,9 +3,9 @@
 <body>
 	<div>
 		<ul class="breadcrumb">
-          <li><a href='#contributor'>Your information</a></li>
-          <li><a href='#subject'>Subject information</a></li>
-          <li><a href='#appearance'>Appearance</a></li>
+          <li><a href='/contributor'>Your information</a></li>
+          <li><a href='/subject'>Subject information</a></li>
+          <li><a href='/appearance'>Appearance</a></li>
           <li class='active'><b>Warrants</b></li>
           <li>Judgments</li>
           <li>Criminal history</li>
@@ -21,21 +21,21 @@
 			<div class='form-group col-xs-12 col-md-6'>
 				<label for='municipality'>Municipality</label>
 				<span ng-show='(form.municipality.$touched && form.municipality.$invalid) || (form.$submitted && form.municipality.$invalid)' class='text-danger'>Required</span>
-				<input type='text' name='municipality' ng-model='municipality' class='form-control input-sm' required maxlength='20'>
+				<input type='text' name='municipality' ng-model='municipality' class='form-control input-sm' required maxlength='40'>
 			</div>
 
 
 				<div class='form-group col-xs-12 col-md-6'>
 					<label for='warrant_number'>Warrant Number</label>
 					<span ng-show='(form.warrant_number.$touched && form.warrant_number.$invalid) || (form.$submitted && form.warrant_number.$invalid)' class='text-danger'>Required</span>
-					<input type='text' name='warrant_number' ng-model='warrant_number' class='form-control input-sm' required maxlength='30'>
+					<input type='text' name='warrant_number' ng-model='warrant_number' class='form-control input-sm' required maxlength='40'>
 				</div>
 
 
 				<div class='form-group col-xs-12 col-md-6'>
 					<label for='charge'>Charge</label>
 					<span ng-show='(form.charge.$touched && form.charge.$invalid) || (form.$submitted && form.charge.$invalid)' class='text-danger'>Required</span>
-					<input type='text' name='charge' ng-model='charge' class='form-control input-sm' required maxlength='20'>
+					<input type='text' name='charge' ng-model='charge' class='form-control input-sm' required maxlength='40'>
 				</div>
 
 

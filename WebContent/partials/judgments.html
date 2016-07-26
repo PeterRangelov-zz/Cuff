@@ -3,10 +3,10 @@
 <body>
 	<div>
 		<ul class="breadcrumb">
-          <li><a href='#contributor'>Your information</a></li>
-          <li><a href='#subject'>Subject information</a></li>
-          <li><a href='#appearance'>Appearance</a></li>
-          <li><a href='#warrants'>Warrants</a></li>
+          <li><a href='/contributor'>Your information</a></li>
+          <li><a href='/subject'>Subject information</a></li>
+          <li><a href='/appearance'>Appearance</a></li>
+          <li><a href='/warrants'>Warrants</a></li>
           <li class='active'><b>Judgments</b></li>
           <li>Criminal history</li>
           <li>Review & Submit</li>
@@ -19,7 +19,7 @@
 			<div class='form-group col-xs-12 col-md-6'>
 				<label for='municipality'>Municipality</label>
 				<span ng-show="(form.municipality.$touched && form.municipality.$invalid) || (form.$submitted && form.municipality.$invalid)" class='text-danger'>Required</span>
-				<input type='text' name='municipality' ng-model='municipality' class='form-control input-sm' required maxlength='30'>
+				<input type='text' name='municipality' ng-model='municipality' class='form-control input-sm' required maxlength='40'>
 			</div>
 
 

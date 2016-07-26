@@ -3,7 +3,7 @@
 <body>
 	<div>
 		<ul class="breadcrumb">
-          <li><a href='#contributor'>Your information</a></li>
+          <li><a href='/contributor'>Your information</a></li>
           <li class="active"><b>Subject information</b></li>
           <li>Appearance</li>
           <li>Warrants</li>
@@ -116,13 +116,13 @@
 			<div class='col-xs-12 col-sm-4'>
 				<div class='form-group'>
 					<label for='reward'>Reward</label>
-					<input type='text' name='reward' ng-model='reward' class='form-control input-sm' maxlength='11'>
+					<input type='text' name='reward' ng-model='reward' class='form-control input-sm' maxlength='20'>
 				</div>
 			</div>
 			<div class='col-xs-12 col-sm-4'>
 				<div class='form-group'>
 					<label for='profession'>Profession(s)</label>
-					<input type='text' name='profession' ng-model='profession' class='form-control input-sm' maxlength='30'>
+					<input type='text' name='profession' ng-model='profession' class='form-control input-sm' maxlength='50'>
 				</div>
 			</div>
 
@@ -132,35 +132,11 @@
 			<div class='col-xs-12'>
 				<div class='form-group'>
 					<label for='background_info'>Background info</label>
-					<textarea name='background_info' ng-model='background_info' class='form-control input-sm' maxlength='1000' placeholder='If desired, please describe the events that prompted you to enter the subject into the database. Use this field to add any info not available for selection in any other form field.'></textarea>
+					<textarea name='background_info' ng-model='background_info' class='form-control input-sm' maxlength='2000' placeholder='If desired, please describe the events that prompted you to enter the subject into the database. Use this field to add any info not available for selection in any other form field.'></textarea>
 				</div>
 			</div>
 		</div>
 
-				
-					
-				
-
-
-
-				
-
-				<div class='form-group'>
-					
-					
-				</div>
-
-				<div class='form-group'>
-					
-				</div>
-
-				<div class='form-group'>
-					
-				</div>
-			</div>
-		</div>
-		
-		
 		<div class="pull-right">			
 			<button type='button' class='btn-sm btn-primary' ng-click='previousStep()'>Back</button>
 			<button type='submit' class='btn-sm btn-primary' ng-click='nextStep(form.$valid)'>Continue</button>
